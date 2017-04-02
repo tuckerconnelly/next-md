@@ -1,65 +1,72 @@
+import colors from '../styles/colors'
+import breakpoints from '../styles/breakpoints'
+
 export default `
-  body {
+  html, body, #__next, [data-reactroot] {
+    height: 100%;
+    margin: 0;
+
     color: ${colors.textBlack};
-    font-family: 'Roboto', sans-serif;
+    font-family: Roboto, sans-serif;
   }
+
   .display4 {
-    font-size: 112;
+    font-size: 112px;
     font-weight: 300;
-    line-height: 112;
+    line-height: 112px;
   }
   .display3 {
-    font-size: 56;
-    line-height: 56;
+    font-size: 56px;
+    line-height: 56px;
   }
   .display2 {
-    font-size: 45;
-    line-height: 48;
+    font-size: 45px;
+    line-height: 48px;
   }
   .display1 {
-    font-size: 34;
-    line-height: 40;
+    font-size: 34px;
+    line-height: 40px;
   }
   .headline {
-    font-size: 24;
-    line-height: 28;
+    font-size: 24px;
+    line-height: 28px;
   }
   .title {
-    font-size: 20;
+    font-size: 20px;
     font-weight: 500;
-    line-height: 32;
+    line-height: 32px;
   }
   .subheading {
-    font-size: 16;
-    line-height: 20;
+    font-size: 16px;
+    line-height: 20px;
   }
   ${breakpoints.ml} {
     .subheading {
-      font-size: 15;
+      font-size: 15px;
     }
   }
   .body2 {
-    font-size: 14;
+    font-size: 14px;
     font-weight: 500;
-    line-height: 24;
+    line-height: 24px;
   }
   ${breakpoints.ml} {
     .subheading {
-      font-size: 13;
+      font-size: 13px;
     }
   }
   .body1 {
-    font-size: 14;
-    line-height: 20;
+    font-size: 14px;
+    line-height: 20px;
   }
   ${breakpoints.ml} {
     .subheading {
-      font-size: 13;
+      font-size: 13px;
     }
   }
   .caption {
-    font-size: 12;
-    line-height: 16;
+    font-size: 12px;
+    line-height: 16px;
   }
 
 

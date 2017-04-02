@@ -1,5 +1,5 @@
 // components
-export { default as Ripples } from './Ripples'
+export { default as Ripples } from './components/Ripples'
 
 // styles
 export { default as animations } from './styles/animations'

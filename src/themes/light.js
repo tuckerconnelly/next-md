@@ -1,6 +1,5 @@
 import _base from './_base'
 
-export default () =>
-  <style>
-    {_base}
-  </style>
+export default `
+  ${_base}
+`
