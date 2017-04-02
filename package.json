@@ -1,0 +1,29 @@
+{
+  "name": "next-md",
+  "version": "0.0.1",
+  "description": "minimalistic material design library with next.js in mind",
+  "main": "lib/index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/next-md/next-md.git"
+  },
+  "homepage": "https://github.com/next-md/next-nd.git",
+  "keywords": [
+    "react",
+    "material",
+    "design",
+    "next",
+    "next.js"
+  ],
+  "author": "Tucker Connelly <web@tuckerconnelly.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-preset-env": "^1.3.2",
+    "babel-preset-react": "^6.23.0"
+  },
+  "dependencies": {
+    "color": "^1.0.3"
+  }
+}
