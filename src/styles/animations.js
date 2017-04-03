@@ -1,53 +1,19 @@
-import breakpoints from './breakpoints'
-
-const makeAnimationFn = (durations, timing) =>
-  (selector, properties, delay = '0ms') =>
+const makeAnimationFn = animation =>
+  (properties, delay = '0ms') =>
     `
-  ${selector} {
     transition: ${properties
       .split(' ')
-      .map(p => `${p} ${durations[0]} ${timing} ${delay}`)
+      .map(p => `${p} ${animation} ${delay}`)
       .join(', ')};
-  }
+  `
 
-  ${breakpoints.md} {
-    ${selector} {
-      transition-duration: ${properties
-      .split(' ')
-      .map(p => `${p} ${durations[1]}`)
-      .join(', ')};
-    }
-  }
-
-  ${breakpoints.ml} {
-    ${selector} {
-      transition-duration: ${properties
-      .split(' ')
-      .map(p => `${p} ${durations[2]}`)
-      .join(', ')};
-    }
-  }
-`
-
+// Can't create selectors from functions, so can't adjust for screen size
+// with media queries
+// Waiting on this: https://github.com/zeit/styled-jsx/issues/162
 export default {
-  standard: makeAnimationFn(
-    ['300ms', '330ms', '180ms'],
-    'cubic-bezier(0.4, 0, 0.2, 1)',
-  ),
-  large: makeAnimationFn(
-    ['375ms', '488ms', '200ms'],
-    'cubic-bezier(0.4, 0, 0.2, 1)',
-  ),
-  entrance: makeAnimationFn(
-    ['225ms', '293ms', '159ms'],
-    'cubic-bezier(0, 0, 0.2, 1)',
-  ),
-  exit: makeAnimationFn(
-    ['195ms', '254ms', '150ms'],
-    'cubic-bezier(0.4, 0, 1, 1)',
-  ),
-  tempExit: makeAnimationFn(
-    ['195ms', '254ms', '150ms'],
-    'cubic-bezier(0.4, 0, 0.6, 1)',
-  ),
+  standard: makeAnimationFn('300ms cubic-bezier(0.4, 0, 0.2, 1)'),
+  large: makeAnimationFn('375ms cubic-bezier(0.4, 0, 0.2, 1)'),
+  entrance: makeAnimationFn('225ms cubic-bezier(0, 0, 0.2, 1)'),
+  exit: makeAnimationFn('195ms cubic-bezier(0.4, 0, 1, 1)'),
+  tempExit: makeAnimationFn('195ms cubic-bezier(0.4, 0, 0.6, 1)'),
 }
