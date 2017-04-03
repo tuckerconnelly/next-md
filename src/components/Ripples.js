@@ -9,7 +9,7 @@ const Ripple = ({style, done}) => (
       div {
         position: absolute;
 
-        opacity: 0.2;
+        opacity: 0.16;
 
         animation: 500ms ease-out 0s 1 forwards ripple;
         transition: opacity 300ms ease-out;
