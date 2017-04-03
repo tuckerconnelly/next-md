@@ -1,11 +1,11 @@
 import React from 'react'
 import omit from 'lodash/omit'
 
-const Ripple = ({ style, done }) =>
-  <div
-    className={done && 'done'}
-    style={style}>
-    <style jsx>{`
+const Ripple = ({style, done}) => (
+  <div className={done && 'done'} style={style}>
+    <style jsx>
+      {
+        `
       div {
         position: absolute;
 
@@ -23,25 +23,28 @@ const Ripple = ({ style, done }) =>
       .done {
         opacity: 0;
       }
-    `}</style>
+    `
+      }
+    </style>
   </div>
+)
 
 Ripple.propTypes = {
   style: React.PropTypes.object.isRequired,
 }
 
 class Ripples extends React.Component {
-  state = { ripples: [] }
+  state = {ripples: []};
 
   startRipple = e => {
     if (this.props.disabled) return
 
-    const { rippleSpread, rippleOpacity, rippleCentered, rippleColor } = this.props
-    const { width, height, left, top } = e.currentTarget.getBoundingClientRect()
+    const {rippleSpread, rippleCentered, rippleColor} = this.props
+    const {width, height, left, top} = e.currentTarget.getBoundingClientRect()
 
-    const x = rippleCentered ? w / 2 : e.pageX - left
+    const x = rippleCentered ? width / 2 : e.pageX - left
     const y = rippleCentered ? height / 2 : e.pageY - top
-    const size = Math.sqrt((width * width) + (height * height)) * 2 * rippleSpread
+    const size = Math.sqrt(width * width + height * height) * 2 * rippleSpread
 
     const newRipple = {
       style: {
@@ -57,32 +60,38 @@ class Ripples extends React.Component {
       done: false,
     }
 
-    this.setState({ ripples: [...this.state.ripples, newRipple] })
-  }
+    this.setState({ripples: [...this.state.ripples, newRipple]})
+  };
 
   endRipple = () => {
     const ripples = [...this.state.ripples]
     ripples[this.state.ripples.length - 1].done = true
-    this.setState({ ripples })
-  }
-  render() {
-    const { children, ...other } = this.props
-    const { ripples } = this.state
+    this.setState({ripples})
+  };
+
+  render () {
+    const {children, ...other} = this.props
+    const {ripples} = this.state
     return (
       <div
         onMouseDown={this.startRipple}
         onMouseUp={this.endRipple}
-        {...omit(other, Object.keys(Ripples.propTypes))}>
+        {...omit(other, Object.keys(Ripples.propTypes))}
+      >
         {children}
         {ripples.map((props, i) => <Ripple {...props} key={i} />)}
-        <style jsx>{`
+        <style jsx>
+          {
+            `
           div {
             position: relative;
 
             cursor: pointer;
             overflow: hidden;
           }
-        `}</style>
+        `
+          }
+        </style>
       </div>
     )
   }
