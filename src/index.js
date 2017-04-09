@@ -1,11 +1,15 @@
-// components
-export {default as Ripples} from './components/Ripples'
+// NOTE Was having trouble with export {default as ...} syntax
+module.exports = {
+  // components
+  Ripples: require('./components/Ripples').default,
+  IconToggle: require('./components/IconToggle').default,
 
-// styles
-export {default as animations} from './styles/animations'
-export {default as elevations} from './styles/elevations'
-export {default as breakpoints} from './styles/breakpoints'
-export {default as colors} from './styles/colors'
+  // styles
+  animations: require('./styles/animations').default,
+  elevations: require('./styles/elevations').default,
+  breakpoints: require('./styles/breakpoints').default,
+  colors: require('./styles/colors').default,
 
-// themes
-export {default as themeLight} from './themes/light'
+  // themes
+  themeLight: require('./themes/light').default,
+}
