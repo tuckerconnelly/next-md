@@ -11,6 +11,10 @@ export default `
     font-family: Roboto, sans-serif;
   }
 
+  * {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  }
+
   .display4 {
     font-size: 112px;
     font-weight: 300;
@@ -41,7 +45,7 @@ export default `
     font-size: 16px;
     line-height: 20px;
   }
-  ${breakpoints.ml} {
+  @media (${breakpoints.ml}) {
     .subheading {
       font-size: 15px;
     }
@@ -51,7 +55,7 @@ export default `
     font-weight: 500;
     line-height: 24px;
   }
-  ${breakpoints.ml} {
+  @media (${breakpoints.ml}) {
     .subheading {
       font-size: 13px;
     }
@@ -60,7 +64,7 @@ export default `
     font-size: 14px;
     line-height: 20px;
   }
-  ${breakpoints.ml} {
+  @media (${breakpoints.ml}) {
     .subheading {
       font-size: 13px;
     }
