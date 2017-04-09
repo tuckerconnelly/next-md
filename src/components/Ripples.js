@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import omit from 'lodash/omit'
 
 const Ripple = ({style, done}) => (
@@ -13,6 +14,11 @@ const Ripple = ({style, done}) => (
 
         animation: 500ms ease-out 0s 1 forwards ripple;
         transition: opacity 300ms ease-out;
+
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
       }
 
       @keyframes ripple {
@@ -30,7 +36,7 @@ const Ripple = ({style, done}) => (
 )
 
 Ripple.propTypes = {
-  style: React.PropTypes.object.isRequired,
+  style: PropTypes.object.isRequired,
 }
 
 class Ripples extends React.Component {
@@ -88,6 +94,11 @@ class Ripples extends React.Component {
 
             cursor: pointer;
             overflow: hidden;
+
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
           }
         `
           }
@@ -98,12 +109,12 @@ class Ripples extends React.Component {
 }
 
 Ripples.propTypes = {
-  rippleColor: React.PropTypes.string,
-  rippleSpread: React.PropTypes.number,
-  rippleCentered: React.PropTypes.bool,
-  disabled: React.PropTypes.bool,
+  rippleColor: PropTypes.string,
+  rippleSpread: PropTypes.number,
+  rippleCentered: PropTypes.bool,
+  disabled: PropTypes.bool,
 
-  children: React.PropTypes.node,
+  children: PropTypes.node,
 }
 
 Ripples.defaultProps = {
