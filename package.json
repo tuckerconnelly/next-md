@@ -5,11 +5,13 @@
   "main": "lib/index.js",
   "scripts": {
     "precommit": "./node_modules/.bin/lint-staged",
+    "lint": "./node_modules/.bin/eslint --fix src",
     "prettier": "./node_modules/.bin/prettier-standard \"src/**/*.js\"",
     "dev": "./node_modules/.bin/babel -w -d lib src"
   },
   "lint-staged": {
     "*.js": [
+      "yarn lint",
       "yarn prettier",
       "git add"
     ]
@@ -38,6 +40,7 @@
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-config-standard": "^7.1.0",
+    "eslint-config-standard-react": "^4.3.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-promise": "^3.5.0",

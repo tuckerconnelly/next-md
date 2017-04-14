@@ -36,6 +36,8 @@ const Ripple = ({style, done}) => (
 )
 
 Ripple.propTypes = {
+  done: PropTypes.bool,
+
   style: PropTypes.object.isRequired,
 }
 

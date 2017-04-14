@@ -3,6 +3,7 @@ module.exports = {
   // components
   Ripples: require('./components/Ripples').default,
   IconToggle: require('./components/IconToggle').default,
+  RaisedButton: require('./components/RaisedButton').default,
 
   // styles
   animations: require('./styles/animations').default,
