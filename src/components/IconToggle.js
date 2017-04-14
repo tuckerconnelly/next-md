@@ -20,7 +20,7 @@ const IconToggle = ({value, style, ...other}) => (
     }}
     {...other}
   >
-    <span className="material-icons">{value}</span>
+    <span className='material-icons'>{value}</span>
   </Ripples>
 )
 
