@@ -4,12 +4,14 @@ module.exports = {
   Ripples: require('./components/Ripples').default,
   IconToggle: require('./components/IconToggle').default,
   Divider: require('./components/Divider').default,
+  RaisedButton: require('./components/RaisedButton').default,
 
   // styles
   animations: require('./styles/animations').default,
-  elevations: require('./styles/elevations').default,
   breakpoints: require('./styles/breakpoints').default,
   colors: require('./styles/colors').default,
+  elevations: require('./styles/elevations').default,
+  g: require('./styles/g').default,
 
   // themes
   themeLight: require('./themes/light').default,

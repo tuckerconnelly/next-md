@@ -1,8 +1,11 @@
+import Color from 'color'
+
 import colors from '../styles/colors'
 import breakpoints from '../styles/breakpoints'
 import elevations from '../styles/elevations'
 
-export default `
+export default theme =>
+  `
   html, body, #__next, [data-reactroot] {
     height: 100%;
     margin: 0;
@@ -73,6 +76,13 @@ export default `
     font-size: 12px;
     line-height: 16px;
   }
+  .button {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+
+    text-transform: uppercase;
+  }
 
 
   .dp0 { ${elevations.dp0} }
@@ -84,4 +94,12 @@ export default `
   .dp12 { ${elevations.dp12} }
   .dp16 { ${elevations.dp16} }
   .dp24 { ${elevations.dp24} }
+
+  .raisedButton {
+    background-color: ${theme.primary};
+  }
+
+  .raisedButton:focused {
+    background-color: ${Color(theme.primary).darken(0.12).rgb().string()};
+  }
 `
