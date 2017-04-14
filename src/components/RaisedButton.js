@@ -12,6 +12,7 @@ const RaisedButton = (
     disabled,
 
     children,
+    style,
     textStyles,
 
     ...other
@@ -41,7 +42,10 @@ const RaisedButton = (
     : children
 
   return (
-    <div className={['raisedButton', disabled && 'disabled'].join(' ')}>
+    <div
+      style={style}
+      className={['raisedButton', disabled && 'disabled'].join(' ')}
+    >
       <Ripples
         style={{display: 'flex', height: '100%', padding: '0 16px'}}
         rippleColor='white'
@@ -97,6 +101,7 @@ const RaisedButton = (
 RaisedButton.propTypes = {
   disabled: PropTypes.bool,
   children: PropTypes.node,
+  style: PropTypes.object,
   textStyles: PropTypes.object,
 }
 
