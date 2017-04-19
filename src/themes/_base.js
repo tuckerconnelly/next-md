@@ -88,6 +88,8 @@ export default theme =>
     text-transform: uppercase;
   }
 
+  .dataTable th { font-weight: 500; }
+
 
   .dp0 { ${elevations.dp0} }
   .dp2 { ${elevations.dp2} }
