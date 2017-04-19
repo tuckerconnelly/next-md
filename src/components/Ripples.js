@@ -46,6 +46,16 @@ Ripple.propTypes = {
 class Ripples extends React.Component {
   state = {ripples: []};
 
+  componentDidMount () {
+    // Adding mouseup to document instead of element because mouseup doesn't get
+    // fired if you mouse down, move cursor off, and then mouse up
+    document.addEventListener('mouseup', this.endRipple)
+  }
+
+  componentWillUnmount () {
+    document.removeEventListener('mouseup', this.endRipple)
+  }
+
   _rid = 0;
 
   startRipple = e => {
@@ -79,6 +89,8 @@ class Ripples extends React.Component {
   };
 
   endRipple = () => {
+    if (!this.state.ripples.length) return
+
     const ripples = [...this.state.ripples]
     ripples[ripples.length - 1].done = true
     this.setState({ripples})
@@ -97,7 +109,6 @@ class Ripples extends React.Component {
     return (
       <div
         onMouseDown={this.startRipple}
-        onMouseUp={this.endRipple}
         className={expand && 'expanded'}
         {...omit(other, Object.keys(Ripples.propTypes))}
       >
