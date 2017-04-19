@@ -276,12 +276,12 @@ export default {
   white: '#ffffff',
 
   textBlack: 'rgba(0, 0, 0, 0.87)',
-  textBlacklackSecondary: 'rgba(0, 0, 0, 0.54)',
-  textBlacklackHint: 'rgba(0, 0, 0, 0.38)',
-  textBlacklackTransparent: 'rgba(0, 0, 0, 0)',
+  textBlackSecondary: 'rgba(0, 0, 0, 0.54)',
+  textBlackHint: 'rgba(0, 0, 0, 0.38)',
+  textBlackTransparent: 'rgba(0, 0, 0, 0)',
 
   textWhite: 'rgba(255, 255, 255, 1)',
-  textWhitehiteSecondary: 'rgba(255, 255, 255, 0.70)',
-  textWhitehiteHint: 'rgba(255, 255, 255, 0.50)',
-  textWhitehiteTransparent: 'rgba(255, 255, 255, 0)',
+  textWhiteSecondary: 'rgba(255, 255, 255, 0.70)',
+  textWhiteHint: 'rgba(255, 255, 255, 0.50)',
+  textWhiteTransparent: 'rgba(255, 255, 255, 0)',
 }
