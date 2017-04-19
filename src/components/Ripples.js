@@ -2,8 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import omit from 'lodash/omit'
 
-const Ripple = ({style, done}) => (
-  <div className={done && 'done'} style={style}>
+const RIPPLE_FADE_OUT_DURATION = 1000
+
+const Ripple = ({style, done, ...other}) => (
+  <div className={done && 'done'} style={style} {...other}>
     <style jsx>
       {
         `
@@ -13,7 +15,7 @@ const Ripple = ({style, done}) => (
         opacity: 0.16;
 
         animation: 500ms ease-out 0s 1 forwards ripple;
-        transition: opacity 300ms ease-out;
+        transition: opacity ${RIPPLE_FADE_OUT_DURATION}ms ease-out;
 
         -webkit-user-select: none;
         -moz-user-select: none;
@@ -44,17 +46,20 @@ Ripple.propTypes = {
 class Ripples extends React.Component {
   state = {ripples: []};
 
+  _rid = 0;
+
   startRipple = e => {
     if (this.props.disabled) return
 
     const {rippleSpread, rippleCentered, rippleColor} = this.props
     const {width, height, left, top} = e.currentTarget.getBoundingClientRect()
 
-    const x = rippleCentered ? width / 2 : e.pageX - left
-    const y = rippleCentered ? height / 2 : e.pageY - top
+    const x = rippleCentered ? width / 2 : e.clientX - left
+    const y = rippleCentered ? height / 2 : e.clientY - top
     const size = Math.sqrt(width * width + height * height) * 2 * rippleSpread
 
     const newRipple = {
+      rid: this._rid,
       style: {
         left: x,
         top: y,
@@ -69,11 +74,20 @@ class Ripples extends React.Component {
     }
 
     this.setState({ripples: [...this.state.ripples, newRipple]})
+
+    this._rid += 1
   };
 
   endRipple = () => {
     const ripples = [...this.state.ripples]
-    ripples[this.state.ripples.length - 1].done = true
+    ripples[ripples.length - 1].done = true
+    this.setState({ripples})
+    setTimeout(this.deleteRipple, RIPPLE_FADE_OUT_DURATION)
+  };
+
+  deleteRipple = id => {
+    const ripples = [...this.state.ripples]
+    ripples.splice(0, 1)
     this.setState({ripples})
   };
 
@@ -88,7 +102,9 @@ class Ripples extends React.Component {
         {...omit(other, Object.keys(Ripples.propTypes))}
       >
         {children}
-        {ripples.map((props, i) => <Ripple {...props} key={i} />)}
+        {ripples.map((props, i) => (
+          <Ripple {...omit(props, 'rid')} key={props.rid} />
+        ))}
         <style jsx>
           {
             `
