@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import omit from 'lodash/omit'
 
-const RIPPLE_FADE_OUT_DURATION = 1000
+const RIPPLE_FADE_OUT_DURATION = 300
 
 const Ripple = ({style, done, ...other}) => (
   <div className={done && 'done'} style={style} {...other}>
