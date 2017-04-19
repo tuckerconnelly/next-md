@@ -13,7 +13,7 @@ const RaisedButton = (
 
     children,
     style,
-    textStyles,
+    textStyle,
 
     ...other
   },
@@ -21,7 +21,7 @@ const RaisedButton = (
   // Uppercase and style if the child is a string
   // Otherwise it's probably an icon or image, so let it through
   const formattedChildren = typeof children === 'string'
-    ? <span className='button text' style={textStyles}>
+    ? <span className='button text' style={textStyle}>
       {children.toUpperCase()}
       <style jsx>
         {
@@ -47,7 +47,7 @@ const RaisedButton = (
       className={['raisedButton', disabled && 'disabled'].join(' ')}
     >
       <Ripples
-        style={{display: 'flex', height: '100%', padding: '0 16px'}}
+        style={{display: 'flex', width: 'auto', padding: '0 16px'}}
         rippleColor='white'
         disabled={disabled}
         {...other}
@@ -102,7 +102,7 @@ RaisedButton.propTypes = {
   disabled: PropTypes.bool,
   children: PropTypes.node,
   style: PropTypes.object,
-  textStyles: PropTypes.object,
+  textStyle: PropTypes.object,
 }
 
 export default RaisedButton
