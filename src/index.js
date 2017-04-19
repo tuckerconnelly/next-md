@@ -1,6 +1,7 @@
 // NOTE Was having trouble with export {default as ...} syntax
 module.exports = {
   // components
+  DataTable: require('./components/DataTable').default,
   Ripples: require('./components/Ripples').default,
   IconToggle: require('./components/IconToggle').default,
   RaisedButton: require('./components/RaisedButton').default,
