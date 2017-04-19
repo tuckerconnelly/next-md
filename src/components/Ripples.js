@@ -78,12 +78,13 @@ class Ripples extends React.Component {
   };
 
   render () {
-    const {children, ...other} = this.props
+    const {expand, children, ...other} = this.props
     const {ripples} = this.state
     return (
       <div
         onMouseDown={this.startRipple}
         onMouseUp={this.endRipple}
+        className={expand && 'expanded'}
         {...omit(other, Object.keys(Ripples.propTypes))}
       >
         {children}
@@ -93,6 +94,9 @@ class Ripples extends React.Component {
             `
           div {
             position: relative;
+
+            width: 100%;
+            height: 100%;
 
             cursor: pointer;
             overflow: hidden;
@@ -115,6 +119,7 @@ Ripples.propTypes = {
   rippleSpread: PropTypes.number,
   rippleCentered: PropTypes.bool,
   disabled: PropTypes.bool,
+  expand: PropTypes.bool,
 
   children: PropTypes.node,
 }
