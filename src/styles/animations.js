@@ -1,9 +1,9 @@
 const makeAnimationFn = animation =>
-  (properties, delay = '0ms') =>
+  properties =>
     `
     transition: ${properties
       .split(' ')
-      .map(p => `${p} ${animation} ${delay}`)
+      .map(p => `${p} ${animation}`)
       .join(', ')};
   `
 
