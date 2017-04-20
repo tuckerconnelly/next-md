@@ -4,6 +4,7 @@ module.exports = {
   DataTable: require('./components/DataTable').default,
   Ripples: require('./components/Ripples').default,
   IconToggle: require('./components/IconToggle').default,
+  Divider: require('./components/Divider').default,
   RaisedButton: require('./components/RaisedButton').default,
 
   // styles
