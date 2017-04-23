@@ -3,6 +3,7 @@ module.exports = {
   // components
   DataTable: require('./components/DataTable').default,
   Divider: require('./components/Divider').default,
+  Dropdown: require('./components/Dropdown').default,
   IconToggle: require('./components/IconToggle').default,
   Menu: require('./components/Menu').default,
   MenuItem: require('./components/Menu').MenuItem,

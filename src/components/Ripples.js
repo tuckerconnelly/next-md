@@ -104,12 +104,12 @@ class Ripples extends React.Component {
   };
 
   render () {
-    const {expand, children, ...other} = this.props
+    const {expand, disabled, children, ...other} = this.props
     const {ripples} = this.state
     return (
       <div
         onMouseDown={this.startRipple}
-        className={expand && 'expanded'}
+        className={`${expand && 'expanded'} ${disabled && 'disabled'}`}
         {...omit(other, Object.keys(Ripples.propTypes))}
       >
         {children}
@@ -132,6 +132,10 @@ class Ripples extends React.Component {
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+          }
+
+          .disabled {
+            cursor: default;
           }
         `
           }
