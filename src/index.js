@@ -5,6 +5,7 @@ module.exports = {
   IconToggle: require('./components/IconToggle').default,
   Divider: require('./components/Divider').default,
   RaisedButton: require('./components/RaisedButton').default,
+  FlatButton: require('./components/FlatButton').default,
 
   // styles
   animations: require('./styles/animations').default,

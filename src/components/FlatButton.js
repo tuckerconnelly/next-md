@@ -1,41 +1,87 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Ripples from './Ripples'
 
-/**
- * Flat buttons are printed on material. They do not lift, but fill with color
- * on press.
- *
- * ### Examples
- *
- *      import React from 'react'
- *      import { View } from 'react-native'
- *      import { FlatButton } from 'carbon-ui'
- *
- *      export default () =>
- *        <View style={{ justifyContent: 'flex-start', flexDirection: 'row' }}>
- *          <FlatButton>Hey I'm a button</FlatButton>
- *          <FlatButton disabled>Hey I'm disabled</FlatButton>
- *        </View>
- */
+import Ripples from './Ripples'
+import breakpoints from '../styles/breakpoints'
+import animations from '../styles/animations'
+
 const FlatButton = (
   {
+    disabled,
+
+    children,
+    style,
+    textStyles,
+
     ...other
   },
 ) => {
   // Uppercase and style if the child is a string
   // Otherwise it's probably an icon or image, so let it through
   const formattedChildren = typeof children === 'string'
+    ? <span className='button text' style={textStyles}>
+      {children.toUpperCase()}
+      <style jsx>
+        {
+            `
+        span {
+          margin: auto;
+        }
+
+        .disabled span {
+          color: rgba(0, 0, 0, .26);
+        }
+      `
+          }
+      </style>
+    </span>
+    : children
 
   return (
-    <Ripples {...other}>
-      {formattedChildren}
-    </Ripples>
+    <div
+      style={style}
+      className={['flatButton', disabled && 'disabled'].join(' ')}
+    >
+      <Ripples
+        style={{display: 'flex', height: '100%', padding: '0 16px'}}
+        rippleColor='black'
+        disabled={disabled}
+        {...other}
+      >
+        {formattedChildren}
+      </Ripples>
+      <style jsx>
+        {
+          `
+        div {
+          display: inline-block;
+          height: 36px;
+          min-width: 88px;
+          border-radius: 2px;
+          margin: 0 8px;
+          text-align: center;
+          ${animations.standard('box-shadow')}
+        }
+        .disabled {
+          background-color: rgba(0, 0, 0, .12);
+        }
+        @media ${breakpoints.ml} {
+          div {
+            height: 32px;
+          }
+        }
+      `
+        }
+      </style>
+    </div>
   )
 }
 
 FlatButton.propTypes = {
-  children: PropTypes.node.isRequired,
+  disabled: PropTypes.bool,
+  children: PropTypes.node,
+  style: PropTypes.object,
+  textStyles: PropTypes.object,
 }
 
 export default FlatButton
