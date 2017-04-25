@@ -8,8 +8,8 @@ module.exports = {
   Menu: require('./components/Menu').default,
   MenuItem: require('./components/Menu').MenuItem,
   RaisedButton: require('./components/RaisedButton').default,
+  FlatButton: require('./components/FlatButton').default,
   Ripples: require('./components/Ripples').default,
-
   // styles
   animations: require('./styles/animations').default,
   breakpoints: require('./styles/breakpoints').default,
