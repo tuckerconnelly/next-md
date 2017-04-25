@@ -70,6 +70,10 @@ const RaisedButton = (
 
           text-align: center;
 
+          /* To get overflow:hidden working with border-radius for ripples */
+          overflow: hidden;
+          z-index: 1;
+
           ${elevations.dp2}
 
           ${animations.standard('box-shadow color background-color')}

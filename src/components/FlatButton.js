@@ -11,7 +11,7 @@ const FlatButton = (
 
     children,
     style,
-    textStyles,
+    textStyle,
 
     ...other
   },
@@ -19,7 +19,10 @@ const FlatButton = (
   // Uppercase and style if the child is a string
   // Otherwise it's probably an icon or image, so let it through
   const formattedChildren = typeof children === 'string'
-    ? <span className='button text' style={textStyles}>
+    ? <span
+      className={`button text ${disabled && 'disabled'}`}
+      style={textStyle}
+      >
       {children.toUpperCase()}
       <style jsx>
         {
@@ -43,7 +46,7 @@ const FlatButton = (
       className={['flatButton', disabled && 'disabled'].join(' ')}
     >
       <Ripples
-        style={{display: 'flex', height: '100%', padding: '0 16px'}}
+        style={{display: 'flex', width: 'auto', padding: '0 16px'}}
         rippleColor='black'
         disabled={disabled}
         {...other}
@@ -55,11 +58,18 @@ const FlatButton = (
           `
         div {
           display: inline-block;
+
           height: 36px;
           min-width: 88px;
           border-radius: 2px;
           margin: 0 8px;
+
           text-align: center;
+
+          /* To get overflow:hidden working with border-radius for ripples */
+          overflow: hidden;
+          z-index: 1;
+
           ${animations.standard('box-shadow')}
         }
         .disabled {
@@ -81,7 +91,7 @@ FlatButton.propTypes = {
   disabled: PropTypes.bool,
   children: PropTypes.node,
   style: PropTypes.object,
-  textStyles: PropTypes.object,
+  textStyle: PropTypes.object,
 }
 
 export default FlatButton
