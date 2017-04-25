@@ -2,10 +2,13 @@
 module.exports = {
   // components
   DataTable: require('./components/DataTable').default,
-  Ripples: require('./components/Ripples').default,
-  IconToggle: require('./components/IconToggle').default,
   Divider: require('./components/Divider').default,
+  Dropdown: require('./components/Dropdown').default,
+  IconToggle: require('./components/IconToggle').default,
+  Menu: require('./components/Menu').default,
+  MenuItem: require('./components/Menu').MenuItem,
   RaisedButton: require('./components/RaisedButton').default,
+  Ripples: require('./components/Ripples').default,
 
   // styles
   animations: require('./styles/animations').default,
