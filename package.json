@@ -1,13 +1,15 @@
 {
   "name": "next-md",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "minimalistic material design library with next.js in mind",
   "main": "lib/index.js",
   "scripts": {
     "precommit": "./node_modules/.bin/lint-staged",
+    "prepublish": "yarn build",
     "lint": "./node_modules/.bin/eslint --fix src",
     "prettier": "./node_modules/.bin/prettier-standard \"src/**/*.js\"",
-    "dev": "./node_modules/.bin/babel -w -d lib src"
+    "dev": "./node_modules/.bin/babel -w -d lib src",
+    "build": "rm -rf lib && ./node_modules/.bin/babel -d lib src"
   },
   "lint-staged": {
     "*.js": [
@@ -48,13 +50,13 @@
     "eslint-plugin-standard": "^2.1.1",
     "husky": "^0.13.3",
     "lint-staged": "^3.4.0",
-    "prettier-standard": "^2.0.2"
+    "prettier-standard": "^2.0.2",
+    "react": "^15.5.4"
   },
   "dependencies": {
     "color": "^1.0.3",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.3",
-    "react": "^15.5.3",
     "styled-jsx": "^0.5.7"
   },
   "babel": {

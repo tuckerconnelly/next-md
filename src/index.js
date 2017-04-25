@@ -1,12 +1,15 @@
 // NOTE Was having trouble with export {default as ...} syntax
 module.exports = {
   // components
-  Ripples: require('./components/Ripples').default,
-  IconToggle: require('./components/IconToggle').default,
+  DataTable: require('./components/DataTable').default,
   Divider: require('./components/Divider').default,
+  Dropdown: require('./components/Dropdown').default,
+  IconToggle: require('./components/IconToggle').default,
+  Menu: require('./components/Menu').default,
+  MenuItem: require('./components/Menu').MenuItem,
   RaisedButton: require('./components/RaisedButton').default,
   FlatButton: require('./components/FlatButton').default,
-
+  Ripples: require('./components/Ripples').default,
   // styles
   animations: require('./styles/animations').default,
   breakpoints: require('./styles/breakpoints').default,

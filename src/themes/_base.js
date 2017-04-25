@@ -6,12 +6,16 @@ import elevations from '../styles/elevations'
 
 export default theme =>
   `
-  html, body, #__next, [data-reactroot] {
+  html, body, #__next {
     height: 100%;
     margin: 0;
 
     color: ${colors.textBlack};
     font-family: Roboto, sans-serif;
+  }
+
+  [data-reactroot] {
+    min-height: 100%;
   }
 
   * {
@@ -83,6 +87,8 @@ export default theme =>
 
     text-transform: uppercase;
   }
+
+  .dataTable th { font-weight: 500; }
 
 
   .dp0 { ${elevations.dp0} }

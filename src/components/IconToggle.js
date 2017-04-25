@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import Ripples from './Ripples'
 
-const IconToggle = ({value, style, ...other}) => (
+const IconToggle = ({value, style, iconStyle, ...other}) => (
   <Ripples
     rippleCentered
     rippleSpread={0.34}
@@ -20,13 +20,14 @@ const IconToggle = ({value, style, ...other}) => (
     }}
     {...other}
   >
-    <span className='material-icons'>{value}</span>
+    <span className='material-icons' style={iconStyle}>{value}</span>
   </Ripples>
 )
 
 IconToggle.propTypes = {
   value: PropTypes.string.isRequired,
   style: PropTypes.object,
+  iconStyle: PropTypes.object,
 }
 
 export default IconToggle

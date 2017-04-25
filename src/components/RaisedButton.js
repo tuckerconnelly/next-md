@@ -13,7 +13,7 @@ const RaisedButton = (
 
     children,
     style,
-    textStyles,
+    textStyle,
 
     ...other
   },
@@ -21,7 +21,10 @@ const RaisedButton = (
   // Uppercase and style if the child is a string
   // Otherwise it's probably an icon or image, so let it through
   const formattedChildren = typeof children === 'string'
-    ? <span className='button text' style={textStyles}>
+    ? <span
+      className={`button text ${disabled && 'disabled'}`}
+      style={textStyle}
+      >
       {children.toUpperCase()}
       <style jsx>
         {
@@ -32,8 +35,8 @@ const RaisedButton = (
           color: ${colors.textWhite};
         }
 
-        .disabled span {
-          color: rgba(0, 0, 0, .26),
+        .disabled {
+          color: rgba(0, 0, 0, .26);
         }
       `
           }
@@ -47,7 +50,7 @@ const RaisedButton = (
       className={['raisedButton', disabled && 'disabled'].join(' ')}
     >
       <Ripples
-        style={{display: 'flex', height: '100%', padding: '0 16px'}}
+        style={{display: 'flex', width: 'auto', padding: '0 16px'}}
         rippleColor='white'
         disabled={disabled}
         {...other}
@@ -69,19 +72,21 @@ const RaisedButton = (
 
           ${elevations.dp2}
 
-          ${animations.standard('box-shadow')}
+          ${animations.standard('box-shadow color background-color')}
         }
 
-        div:hover {
+        div:hover:not(.disabled) {
           ${elevations.dp2}
         }
 
-        div:active {
+        div:active:not(.disabled) {
           ${elevations.dp4}
         }
 
         .disabled {
-          background-color: rgba(0, 0, 0, .12),
+          background-color: rgba(0, 0, 0, .12);
+
+          ${elevations.dp0}
         }
 
         @media ${breakpoints.ml} {
@@ -102,7 +107,7 @@ RaisedButton.propTypes = {
   disabled: PropTypes.bool,
   children: PropTypes.node,
   style: PropTypes.object,
-  textStyles: PropTypes.object,
+  textStyle: PropTypes.object,
 }
 
 export default RaisedButton
