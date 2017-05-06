@@ -6,7 +6,7 @@ import elevations from '../styles/elevations'
 
 export default theme =>
   `
-  html, body, #__next {
+  html, body, body > div:first-of-type, #__next {
     height: 100%;
     margin: 0;
 
