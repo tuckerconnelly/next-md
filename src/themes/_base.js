@@ -108,4 +108,13 @@ export default theme =>
   .raisedButton:focused {
     background-color: ${Color(theme.primary).darken(0.12).rgb().string()};
   }
+
+  .progressIndicator.circular {
+    width: 60px;
+    height: 60px;
+  }
+
+  .progressIndicator.circular .path {
+    stroke: ${theme.primary};
+  }
 `
