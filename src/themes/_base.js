@@ -52,7 +52,7 @@ export default theme =>
     font-size: 16px;
     line-height: 20px;
   }
-  @media (${breakpoints.ml}) {
+  @media ${breakpoints.ml} {
     .subheading {
       font-size: 15px;
     }
@@ -62,8 +62,8 @@ export default theme =>
     font-weight: 500;
     line-height: 24px;
   }
-  @media (${breakpoints.ml}) {
-    .subheading {
+  @media ${breakpoints.ml} {
+    .body2 {
       font-size: 13px;
     }
   }
@@ -71,8 +71,8 @@ export default theme =>
     font-size: 14px;
     line-height: 20px;
   }
-  @media (${breakpoints.ml}) {
-    .subheading {
+  @media ${breakpoints.ml} {
+    .body1 {
       font-size: 13px;
     }
   }
