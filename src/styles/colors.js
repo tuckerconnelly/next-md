@@ -283,5 +283,5 @@ export default {
   textWhite: 'rgba(255, 255, 255, 1)',
   textWhiteSecondary: 'rgba(255, 255, 255, 0.70)',
   textWhiteHint: 'rgba(255, 255, 255, 0.50)',
-  textWhiteTransparent: 'rgba(255, 255, 255, 0)',
+  textWhiteTransparent: 'rgba(255, 255, 255, 0)'
 }

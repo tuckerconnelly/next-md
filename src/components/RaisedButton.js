@@ -16,7 +16,7 @@ const RaisedButton = (
     textStyle,
 
     ...other
-  },
+  }
 ) => {
   // Uppercase and style if the child is a string
   // Otherwise it's probably an icon or image, so let it through
@@ -111,7 +111,7 @@ RaisedButton.propTypes = {
   disabled: PropTypes.bool,
   children: PropTypes.node,
   style: PropTypes.object,
-  textStyle: PropTypes.object,
+  textStyle: PropTypes.object
 }
 
 export default RaisedButton

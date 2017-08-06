@@ -30,7 +30,7 @@ const DataTable = ({children, ...other}) => (
 )
 
 DataTable.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.any
 }
 
 DataTable.HRow = ({children, style, ...other}) => (
@@ -39,23 +39,25 @@ DataTable.HRow = ({children, style, ...other}) => (
       children,
       (
         child,
-        i,
+        i
         // Give the first cell a left padding of 24, per spec
       ) =>
         i === 0
           ? React.cloneElement(child, {
             ...child.props,
-            style: {paddingLeft: 24, ...(child.props.style || {})},
+            style: {paddingLeft: 24, ...(child.props.style || {})}
           })
-          : child,
+          : child
     )}
   </tr>
 )
 
 DataTable.HRow.propTypes = {
   children: PropTypes.any,
-  style: PropTypes.object,
+  style: PropTypes.object
 }
+
+DataTable.HRow.displayName = 'DataTable.HRow'
 
 DataTable.HCell = ({children, ...other}) => (
   <th {...other}>
@@ -80,8 +82,10 @@ DataTable.HCell = ({children, ...other}) => (
 )
 
 DataTable.HCell.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.any
 }
+
+DataTable.HCell.displayName = 'DataTable.HCell'
 
 DataTable.Row = ({children, style, ...other}) => (
   <tr {...other}>
@@ -89,15 +93,15 @@ DataTable.Row = ({children, style, ...other}) => (
       children,
       (
         child,
-        i,
+        i
         // Give the first cell a left padding of 24, per spec
       ) =>
         i === 0
           ? React.cloneElement(child, {
             ...child.props,
-            style: {paddingLeft: 24, ...(child.props.style || {})},
+            style: {paddingLeft: 24, ...(child.props.style || {})}
           })
-          : child,
+          : child
     )}
     <style jsx>
       {
@@ -119,8 +123,10 @@ DataTable.Row = ({children, style, ...other}) => (
 
 DataTable.Row.propTypes = {
   children: PropTypes.any,
-  style: PropTypes.object,
+  style: PropTypes.object
 }
+
+DataTable.Row.displayName = 'DataTable.Row'
 
 DataTable.Cell = ({children, ...other}) => (
   <td {...other}>
@@ -150,7 +156,9 @@ DataTable.Cell = ({children, ...other}) => (
 )
 
 DataTable.Cell.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.any
 }
+
+DataTable.Cell.displayName = 'DataTable.Cell'
 
 export default DataTable

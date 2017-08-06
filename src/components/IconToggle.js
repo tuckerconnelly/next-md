@@ -16,7 +16,7 @@ const IconToggle = ({value, style, iconStyle, ...other}) => (
       justifyContent: 'center',
 
       overflow: 'visible',
-      ...style,
+      ...style
     }}
     {...other}
   >
@@ -27,7 +27,7 @@ const IconToggle = ({value, style, iconStyle, ...other}) => (
 IconToggle.propTypes = {
   value: PropTypes.string.isRequired,
   style: PropTypes.object,
-  iconStyle: PropTypes.object,
+  iconStyle: PropTypes.object
 }
 
 export default IconToggle

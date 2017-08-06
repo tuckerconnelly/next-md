@@ -18,10 +18,10 @@ const ProgressIndicator = props => {
     return props.mode !== 'indeterminate'
       ? {
         strokeDasharray: `${2 * Math.PI * 25 * _calculateRatio(props.value)}, 400`,
-        stroke: props.color,
+        stroke: props.color
       }
       : {
-        stroke: props.color,
+        stroke: props.color
       }
   }
 
@@ -50,7 +50,7 @@ const ProgressIndicator = props => {
             position: relative;
 
             display: inline-block;
-            
+
             transform: rotate(-90deg);
           }
 
@@ -144,7 +144,7 @@ ProgressIndicator.propTypes = {
   multicolor: PropTypes.bool,
   min: PropTypes.number,
   max: PropTypes.number,
-  value: PropTypes.number,
+  value: PropTypes.number
 }
 
 ProgressIndicator.defaultProps = {
@@ -152,7 +152,7 @@ ProgressIndicator.defaultProps = {
   mode: 'indeterminate',
   value: 0,
   min: 0,
-  max: 100,
+  max: 100
 }
 
 export default ProgressIndicator

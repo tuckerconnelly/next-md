@@ -8,7 +8,7 @@ const Divider = ({color, style, ...other}) => (
 Divider.propTypes = {
   color: PropTypes.string,
 
-  style: PropTypes.object,
+  style: PropTypes.object
 }
 
 export default Divider

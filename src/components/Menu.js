@@ -70,7 +70,7 @@ MenuItem.propTypes = {
   children: PropTypes.node,
   value: PropTypes.any,
   active: PropTypes.bool,
-  selected: PropTypes.bool,
+  selected: PropTypes.bool
 }
 
 const ACTIVATE_TRANSITION_DURATION = 300
@@ -79,7 +79,7 @@ class Menu extends React.Component {
   state = {
     active: this.props.active,
     animateActive: this.props.active,
-    animateDeactive: !this.props.active,
+    animateDeactive: !this.props.active
   };
 
   componentDidMount () {
@@ -101,7 +101,7 @@ class Menu extends React.Component {
       this.setState({
         active: true,
         animateActive: false,
-        animateDeactive: false,
+        animateDeactive: false
       })
       this.acivateTimeout = setTimeout(() =>
         this.setState({animateActive: true}))
@@ -113,9 +113,9 @@ class Menu extends React.Component {
           this.setState({
             active: false,
             animateActive: false,
-            animateDeactive: false,
+            animateDeactive: false
           }),
-        ACTIVATE_TRANSITION_DURATION,
+        ACTIVATE_TRANSITION_DURATION
       )
     }
   }
@@ -146,7 +146,7 @@ class Menu extends React.Component {
       >
         {React.Children.map(children, c =>
           React.cloneElement(c, {
-            active: animateActive,
+            active: animateActive
           }))}
         <style jsx>
           {
@@ -200,12 +200,12 @@ Menu.propTypes = {
   style: PropTypes.object,
   width: PropTypes.number,
   dense: PropTypes.bool,
-  active: PropTypes.bool,
+  active: PropTypes.bool
 }
 
 Menu.defaultProps = {
   style: {},
-  width: 2,
+  width: 2
 }
 
 export default Menu

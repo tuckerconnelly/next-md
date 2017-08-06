@@ -36,7 +36,7 @@ class Dropdown extends React.Component {
   get valueToText () {
     return React.Children.toArray(this.props.children).reduce((prev, curr) => ({
       ...prev,
-      [curr.props.value]: curr.props.children,
+      [curr.props.value]: curr.props.children
     }), {})
   }
 
@@ -64,14 +64,14 @@ class Dropdown extends React.Component {
             // TODO Move up to line up selected MenuItem with .value
             top: 0,
 
-            width: '100%',
+            width: '100%'
           }}
           active={this.state.active}
         >
           {React.Children.map(children, c =>
             React.cloneElement(c, {
               onClick: () => this.props.onChange(c.props.value),
-              selected: value === c.props.value,
+              selected: value === c.props.value
             }))}
         </Menu>
         <style jsx>
@@ -112,13 +112,13 @@ Dropdown.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   style: PropTypes.object,
   children: PropTypes.node,
-  onChange: PropTypes.func,
+  onChange: PropTypes.func
 }
 
 Dropdown.defaultProps = {
   style: {},
   width: 2,
-  onChange: () => 0,
+  onChange: () => 0
 }
 
 export default Dropdown

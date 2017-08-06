@@ -41,7 +41,7 @@ const Ripple = ({style, done, ...other}) => (
 Ripple.propTypes = {
   done: PropTypes.bool,
 
-  style: PropTypes.object.isRequired,
+  style: PropTypes.object.isRequired
 }
 
 class Ripples extends React.Component {
@@ -79,9 +79,9 @@ class Ripples extends React.Component {
         height: size,
         borderRadius: size / 2,
 
-        backgroundColor: rippleColor,
+        backgroundColor: rippleColor
       },
-      done: false,
+      done: false
     }
 
     this.setState({ripples: [...this.state.ripples, newRipple]})
@@ -105,13 +105,13 @@ class Ripples extends React.Component {
   };
 
   render () {
-    const {expand, disabled, children, ...other} = this.props
+    const {disabled, children, ...other} = this.props
     const {ripples} = this.state
     return (
       <div
         onMouseDown={this.startRipple}
-        className={`${expand && 'expanded'} ${disabled && 'disabled'}`}
-        {...omit(other, Object.keys(Ripples.propTypes))}
+        className={`${disabled && 'disabled'}`}
+        {...omit(other, Object.keys(Ripples.propTypes || {}))}
       >
         {children}
         {ripples.map((props, i) => (
@@ -151,15 +151,14 @@ Ripples.propTypes = {
   rippleSpread: PropTypes.number,
   rippleCentered: PropTypes.bool,
   disabled: PropTypes.bool,
-  expand: PropTypes.bool,
 
-  children: PropTypes.node,
+  children: PropTypes.node
 }
 
 Ripples.defaultProps = {
   rippleColor: 'black',
   rippleSpread: 1,
-  rippleCentered: false,
+  rippleCentered: false
 }
 
 export default Ripples

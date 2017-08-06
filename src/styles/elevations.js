@@ -61,5 +61,5 @@ export default {
       0 12px 36px 8px rgba(0, 0, 0, 0.2);
 
     z-index: 2400;
-  `,
+  `
 }

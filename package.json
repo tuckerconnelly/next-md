@@ -4,17 +4,21 @@
   "description": "minimalistic material design library with next.js in mind",
   "main": "lib/index.js",
   "scripts": {
-    "precommit": "./node_modules/.bin/lint-staged",
-    "prepublish": "yarn build",
-    "lint": "./node_modules/.bin/eslint --fix src",
-    "prettier": "./node_modules/.bin/prettier-standard \"src/**/*.js\"",
-    "dev": "./node_modules/.bin/babel -w -d lib src",
-    "build": "rm -rf lib && ./node_modules/.bin/babel -d lib src"
+    "precommit": "$(npm bin)/lint-staged",
+    "prepublish": "npm run build && npm run deploy",
+    "lint": "$(npm bin)/eslint src",
+    "prettier": "$(npm bin)/prettier-standard \"src/**/*.js\"",
+    "dev": "$(npm bin)/babel -w -d lib src",
+    "build-lib": "rm -rf lib && $(npm bin)/babel -d lib src",
+    "build-storybook": "rm -rf .out && build-storybook -c ./src/components/.storybook -o .out",
+    "build": "npm run build-lib && npm run build-storybook",
+    "start": "cd .out && serve -p 9001",
+    "deploy": "now && now alias"
   },
   "lint-staged": {
-    "*.js": [
-      "yarn lint",
-      "yarn prettier",
+    "./**/*.js": [
+      "npm run lint",
+      "npm run prettier",
       "git add"
     ]
   },
@@ -33,11 +37,15 @@
   "author": "Tucker Connelly <web@tuckerconnelly.com>",
   "license": "MIT",
   "devDependencies": {
+    "@storybook/addon-info": "^3.2.0",
+    "@storybook/addon-knobs": "^3.2.0",
+    "@storybook/react": "^3.2.3",
     "babel-cli": "^6.24.0",
     "babel-eslint": "^7.2.1",
     "babel-plugin-transform-class-properties": "^6.23.0",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.3.2",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.23.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
@@ -50,13 +58,19 @@
     "eslint-plugin-standard": "^2.1.1",
     "husky": "^0.13.3",
     "lint-staged": "^3.4.0",
+    "next": "^2.4.9",
     "prettier-standard": "^2.0.2",
-    "react": "^15.5.4"
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "now": {
+    "alias": "next-md"
   },
   "dependencies": {
     "color": "^1.0.3",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.3",
+    "serve": "^6.0.6",
     "styled-jsx": "^0.5.7"
   },
   "babel": {

@@ -20,5 +20,5 @@ module.exports = {
   g: require('./styles/g').default,
 
   // themes
-  themeLight: require('./themes/light').default,
+  themeLight: require('./themes/light').default
 }

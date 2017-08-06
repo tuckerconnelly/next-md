@@ -15,5 +15,5 @@ export default {
   large: makeAnimationFn('375ms cubic-bezier(0.4, 0, 0.2, 1)'),
   entrance: makeAnimationFn('225ms cubic-bezier(0, 0, 0.2, 1)'),
   exit: makeAnimationFn('195ms cubic-bezier(0.4, 0, 1, 1)'),
-  tempExit: makeAnimationFn('195ms cubic-bezier(0.4, 0, 0.6, 1)'),
+  tempExit: makeAnimationFn('195ms cubic-bezier(0.4, 0, 0.6, 1)')
 }
