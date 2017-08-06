@@ -163,7 +163,7 @@ const MyHighComponent = () => <div className='dp16' />
 
 ### grid
 
-Keep your vertical and horizontal rhythm by using the `g()` function:
+Keep your elements on Material Design's 4px grid by using the `g()` function:
 
 ```js
 import {g} from 'next-md'

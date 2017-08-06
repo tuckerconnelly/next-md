@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "precommit": "$(npm bin)/lint-staged",
-    "prepublish": "npm run build && npm run deploy",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run deploy",
     "lint": "$(npm bin)/eslint src",
     "prettier": "$(npm bin)/prettier-standard \"src/**/*.js\"",
     "dev": "$(npm bin)/babel -w -d lib src",
