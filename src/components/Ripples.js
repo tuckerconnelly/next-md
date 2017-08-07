@@ -104,6 +104,14 @@ class Ripples extends React.Component {
     this.setState({ripples})
   };
 
+  handleClick = e => {
+    if (this.props.disabled) return
+
+    if (this.props.onClick) {
+      this.props.onClick(e)
+    }
+  }
+
   render () {
     const {disabled, children, ...other} = this.props
     const {ripples} = this.state
@@ -112,6 +120,7 @@ class Ripples extends React.Component {
         onMouseDown={this.startRipple}
         className={`${disabled && 'disabled'}`}
         {...omit(other, Object.keys(Ripples.propTypes || {}))}
+        onClick={this.handleClick}
       >
         {children}
         {ripples.map((props, i) => (
@@ -151,6 +160,8 @@ Ripples.propTypes = {
   rippleSpread: PropTypes.number,
   rippleCentered: PropTypes.bool,
   disabled: PropTypes.bool,
+
+  onClick: PropTypes.func,
 
   children: PropTypes.node
 }
