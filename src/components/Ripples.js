@@ -55,6 +55,7 @@ class Ripples extends React.Component {
 
   componentWillUnmount () {
     document.removeEventListener('mouseup', this.endRipple)
+    this._deleteRipplesTimeouts.forEach(clearTimeout)
   }
 
   _rid = 0;
@@ -89,13 +90,15 @@ class Ripples extends React.Component {
     this._rid += 1
   };
 
+  _deleteRipplesTimeouts = []
+
   endRipple = () => {
     if (!this.state.ripples.length) return
 
     const ripples = [...this.state.ripples]
     ripples[ripples.length - 1].done = true
     this.setState({ripples})
-    setTimeout(this.deleteRipple, RIPPLE_FADE_OUT_DURATION)
+    this._deleteRipplesTimeouts.push(setTimeout(this.deleteRipple, RIPPLE_FADE_OUT_DURATION))
   };
 
   deleteRipple = id => {
