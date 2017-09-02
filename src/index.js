@@ -11,6 +11,7 @@ module.exports = {
   FlatButton: require('./components/FlatButton').default,
   Ripples: require('./components/Ripples').default,
   ProgressIndicator: require('./components/ProgressIndicator').default,
+  Switch: require('./components/Switch').default,
 
   // styles
   animations: require('./styles/animations').default,

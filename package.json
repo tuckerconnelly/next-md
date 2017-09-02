@@ -14,6 +14,7 @@
     "build-storybook": "rm -rf .out && build-storybook -c ./src/components/.storybook -o .out",
     "build": "npm run build-lib && npm run build-storybook",
     "start": "cd .out && serve -p 9001",
+    "dev-storybook": "start-storybook -p 9001  -c ./src/components/.storybook",
     "deploy": "now && now alias"
   },
   "lint-staged": {

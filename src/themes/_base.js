@@ -117,4 +117,28 @@ export default theme =>
   .progressIndicator.circular .path {
     stroke: ${theme.primary};
   }
+
+  .ripple {
+    background-color: white;
+  }
+
+  .switch .track {
+    background-color: rgba(0, 0, 0, 0.26);
+  }
+
+  .switch .thumb {
+    background-color: white;
+  }
+
+  .switch .thumb .ripple {
+    background-color: ${theme.primary};
+  }
+
+  .switch.checked .track {
+    background-color: ${Color(theme.primary).alpha(0.5).rgb().string()};
+  }
+
+  .switch.checked .thumb {
+    background-color: ${theme.primary};
+  }
 `

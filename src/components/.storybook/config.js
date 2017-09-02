@@ -5,7 +5,7 @@ addDecorator(withKnobs)
 
 import React from 'react'
 
-import {themeLight} from '../../index'
+import {themeLight, g} from '../../index'
 
 const theme = {
   primary: '#7ec165',
@@ -17,7 +17,13 @@ const withNextJs = storyFn =>
     <link href='https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i' rel='stylesheet' />
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet' />
     <style dangerouslySetInnerHTML={{__html: themeLight(theme)}} />
-    {storyFn()}
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      padding: `${g(12)} ${g(2)}`
+    }}>
+      {storyFn()}
+    </div>
   </div>
 
 addDecorator(withNextJs)
@@ -30,7 +36,8 @@ function loadStories () {
   require('./Menu')
   require('./ProgressIndicator')
   require('./RaisedButton')
-  // require('./Ripples')
+  require('./Ripples')
+  require('./Switch')
 }
 
 configure(loadStories, module)

@@ -6,11 +6,11 @@ const RIPPLE_FADE_OUT_DURATION = 300
 
 // export default () => <Pecks><Ripples /></Pecks>
 const Ripple = ({style, done, ...other}) => (
-  <div className={done && 'done'} style={style} {...other}>
+  <div className={`ripple ${done && 'done'}`} style={style} {...other}>
     <style jsx>
       {
         `
-      div {
+      .ripple {
         position: absolute;
 
         opacity: 0.16;
@@ -170,7 +170,6 @@ Ripples.propTypes = {
 }
 
 Ripples.defaultProps = {
-  rippleColor: 'black',
   rippleSpread: 1,
   rippleCentered: false
 }
