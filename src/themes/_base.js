@@ -3,6 +3,7 @@ import Color from 'color'
 import colors from '../styles/colors'
 import breakpoints from '../styles/breakpoints'
 import elevations from '../styles/elevations'
+import type from '../styles/type'
 
 export default theme =>
   `
@@ -22,64 +23,25 @@ export default theme =>
     -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
 
-  .display4 {
-    font-size: 112px;
-    font-weight: 300;
-    line-height: 112px;
-  }
-  .display3 {
-    font-size: 56px;
-    line-height: 56px;
-  }
-  .display2 {
-    font-size: 45px;
-    line-height: 48px;
-  }
-  .display1 {
-    font-size: 34px;
-    line-height: 40px;
-  }
-  .headline {
-    font-size: 24px;
-    line-height: 28px;
-  }
-  .title {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 32px;
-  }
-  .subheading {
-    font-size: 16px;
-    line-height: 20px;
-  }
+  .display4 { ${type.display4} }
+  .display3 { ${type.display3} }
+  .display2 { ${type.display2} }
+  .display1 { ${type.display1} }
+  .headline { ${type.headline} }
+  .title { ${type.title} }
+  .subheading { ${type.subheading} }
   @media ${breakpoints.ml} {
-    .subheading {
-      font-size: 15px;
-    }
+    .subheading { ${type.subheadingDesktop} }
   }
-  .body2 {
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 24px;
-  }
+  .body2 { ${type.body2} }
   @media ${breakpoints.ml} {
-    .body2 {
-      font-size: 13px;
-    }
+    .body2 { ${type.body2Desktop} }
   }
-  .body1 {
-    font-size: 14px;
-    line-height: 20px;
-  }
+  .body1 { ${type.body1} }
   @media ${breakpoints.ml} {
-    .body1 {
-      font-size: 13px;
-    }
+    .body1 { ${type.body1Desktop}}
   }
-  .caption {
-    font-size: 12px;
-    line-height: 16px;
-  }
+  .caption { ${type.caption} }
   .button {
     font-size: 14px;
     font-weight: 500;

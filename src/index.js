@@ -19,6 +19,7 @@ module.exports = {
   colors: require('./styles/colors').default,
   elevations: require('./styles/elevations').default,
   g: require('./styles/g').default,
+  type: require('./styles/type').default,
 
   // themes
   themeLight: require('./themes/light').default
