@@ -7,12 +7,21 @@ import type from '../styles/type'
 
 export default theme =>
   `
-  html, body, body > div:first-of-type, #__next {
+  html, body, body > div:first-of-type, #__next, #__next-error {
     height: 100%;
     margin: 0;
 
     color: ${colors.textBlack};
     font-family: Roboto, sans-serif;
+  }
+
+  #__next-error {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
   }
 
   [data-reactroot] {
