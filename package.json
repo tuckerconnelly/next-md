@@ -10,6 +10,7 @@
     "lint": "$(npm bin)/eslint src",
     "prettier": "$(npm bin)/prettier-standard \"src/**/*.js\"",
     "dev": "$(npm bin)/babel -w -d lib src",
+    "dev-storybook": "start-storybook -p 9001 -c ./src/components/.storybook",
     "build-lib": "rm -rf lib && $(npm bin)/babel -d lib src",
     "build-storybook": "rm -rf .out && build-storybook -c ./src/components/.storybook -o .out",
     "build": "npm run build-lib && npm run build-storybook",
