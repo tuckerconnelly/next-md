@@ -14,8 +14,10 @@ Create a `theme.js` in your project root:
 
 ```js
 export default {
-  primary: '#7ec165',
-  secondary: '#fe761f'
+  colors: {
+    primary: '#7ec165',
+    secondary: '#fe761f'
+  }
 }
 ```
 

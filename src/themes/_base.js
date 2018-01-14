@@ -60,11 +60,11 @@ export default theme =>
   .dp24 { ${elevations.dp24} }
 
   .raisedButton {
-    background-color: ${theme.primary};
+    background-color: ${theme.colors.primary};
   }
 
   .raisedButton:focused {
-    background-color: ${Color(theme.primary).darken(0.12).rgb().string()};
+    background-color: ${Color(theme.colors.primary).darken(0.12).rgb().string()};
   }
 
   .progressIndicator.circular {
@@ -73,7 +73,7 @@ export default theme =>
   }
 
   .progressIndicator.circular .path {
-    stroke: ${theme.primary};
+    stroke: ${theme.colors.primary};
   }
 
   .ripple {
@@ -89,14 +89,14 @@ export default theme =>
   }
 
   .switch .thumb .ripple {
-    background-color: ${theme.primary};
+    background-color: ${theme.colors.primary};
   }
 
   .switch.checked .track {
-    background-color: ${Color(theme.primary).alpha(0.5).rgb().string()};
+    background-color: ${Color(theme.colors.primary).alpha(0.5).rgb().string()};
   }
 
   .switch.checked .thumb {
-    background-color: ${theme.primary};
+    background-color: ${theme.colors.primary};
   }
 `
