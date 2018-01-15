@@ -1,6 +1,6 @@
 # next-md
 
-next-md is a minimalistic Material Design library for [next.js](https://github.com/zeit/next.js)
+next-md is a minimalistic ui library _inspired by_ Material Design for [next.js](https://github.com/zeit/next.js)
 
 ## How to use
 

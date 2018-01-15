@@ -2,8 +2,10 @@
 module.exports = {
   // components
   DataTable: require('./components/DataTable').default,
+  Dialog: require('./components/Dialog').default,
   Divider: require('./components/Divider').default,
   Dropdown: require('./components/Dropdown').default,
+  FormError: require('./components/FormError').default,
   IconToggle: require('./components/IconToggle').default,
   Menu: require('./components/Menu').default,
   MenuItem: require('./components/Menu').MenuItem,
@@ -12,6 +14,7 @@ module.exports = {
   Ripples: require('./components/Ripples').default,
   ProgressIndicator: require('./components/ProgressIndicator').default,
   Switch: require('./components/Switch').default,
+  TextField: require('./components/TextField').default,
 
   // styles
   animations: require('./styles/animations').default,

@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import omit from 'lodash/omit'
 
 import Ripples from './Ripples'
 import g from '../styles/g'
@@ -127,7 +126,8 @@ class Menu extends React.Component {
   }
 
   render () {
-    const {children, width, dense, style, ...other} = this.props
+    // eslint-disable-next-line no-unused-vars
+    const {children, width, dense, style, active: _active, ...other} = this.props
     const {active, animateActive, animateDeactive} = this.state
 
     return (
@@ -142,7 +142,7 @@ class Menu extends React.Component {
         `
         }
         style={{minWidth: width * this.widthMultiple, ...style}}
-        {...omit(other, 'active')}
+        {...other}
       >
         {React.Children.map(children, c =>
           React.cloneElement(c, {

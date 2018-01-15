@@ -78,7 +78,7 @@
     "prop-types": "^15.6.0",
     "serve": "^6.4.8",
     "styled-jsx": "^2.2.1",
-    "transitionify": "0.0.3"
+    "transitionify": "0.0.5"
   },
   "babel": {
     "presets": [

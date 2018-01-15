@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import omit from 'lodash/omit'
 
 const RIPPLE_FADE_OUT_DURATION = 300
 
@@ -116,18 +115,19 @@ class Ripples extends React.Component {
   }
 
   render () {
-    const {disabled, children, ...other} = this.props
+    // eslint-disable-next-line no-unused-vars
+    const {disabled, children, rippleColor, rippleSpread, rippleCentered, onClick, ...other} = this.props
     const {ripples} = this.state
     return (
       <div
         onMouseDown={this.startRipple}
         className={`${disabled && 'disabled'}`}
-        {...omit(other, Object.keys(Ripples.propTypes || {}))}
+        {...other}
         onClick={this.handleClick}
       >
         {children}
         {ripples.map((props, i) => (
-          <Ripple {...omit(props, 'rid')} key={props.rid} />
+          <Ripple style={props.style} done={props.done} key={props.rid} />
         ))}
         <style jsx>
           {

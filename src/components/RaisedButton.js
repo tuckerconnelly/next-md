@@ -71,6 +71,8 @@ const RaisedButton = (
         div {
           height: 32px;
 
+          line-height: 32px;
+
           ${elevations.dp0}
         }
       }

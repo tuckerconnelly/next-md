@@ -39,6 +39,7 @@ const FlatButton = (
         border-radius: 2px;
         margin: 0 8px;
 
+        line-height: 36px;
         text-align: center;
         text-transform: uppercase;
 
@@ -54,6 +55,8 @@ const FlatButton = (
       @media ${breakpoints.ml} {
         div {
           height: 32px;
+
+          line-height: 32px;
         }
       }
     `
