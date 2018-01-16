@@ -1,6 +1,6 @@
 {
   "name": "next-md",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "minimalistic material design library with next.js in mind",
   "main": "dist/index.js",
   "scripts": {
