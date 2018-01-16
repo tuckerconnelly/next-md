@@ -20,6 +20,6 @@ module.exports = {
 
   // theme
   themeConfigLight: require('./theme/themeConfigLight').default,
-  makeTheme: require('./theme/makeStyles').default,
+  makeTheme: require('./theme/makeTheme').default,
   ThemeProvider: require('./theme/ThemeProvider').default
 }
