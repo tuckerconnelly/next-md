@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import mdColors from '../mdColors'
+import MD_COLORS from '../MD_COLORS'
 import Ripples from './Ripples'
 
 const THUMB_SIZE_G_UNITS = 5
@@ -73,7 +73,7 @@ class Switch extends React.Component {
           }
 
           .disabled .thumb {
-            background-color: ${mdColors.grey400};
+            background-color: ${MD_COLORS.grey400};
           }
         `}</style>
       </div>

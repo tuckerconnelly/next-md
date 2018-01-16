@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import mdColors from '../mdColors'
+import MD_COLORS from '../MD_COLORS'
 import Ripples from './Ripples'
 
 export class MenuItem extends React.Component {
@@ -30,7 +30,7 @@ export class MenuItem extends React.Component {
             }
 
             .root:hover {
-              background-color: ${mdColors.grey100};
+              background-color: ${MD_COLORS.grey100};
             }
 
             .active {
@@ -41,11 +41,11 @@ export class MenuItem extends React.Component {
             .inner {
               padding: 14px 0px 14px ${g(4)};
 
-              color: ${mdColors.textBlackSecondary};
+              color: ${MD_COLORS.textBlackSecondary};
             }
 
             .selected {
-              color: ${mdColors.textBlack};
+              color: ${MD_COLORS.textBlack};
             }
 
             @media ${breakpoints.ml} {

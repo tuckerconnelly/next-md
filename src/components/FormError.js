@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import transitionify from 'transitionify'
 
-import mdColors from '../styles/colors'
+import MD_COLORS from '../MD_COLORS'
 
 class FormError extends React.Component {
   render () {
@@ -17,7 +17,7 @@ class FormError extends React.Component {
             margin-bottom: ${g(0)};
 
             ${type.body1}
-            color: ${mdColors.red600};
+            color: ${MD_COLORS.red600};
             font-weight: 300;
 
             opacity: 0;

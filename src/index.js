@@ -1,6 +1,6 @@
 // NOTE Was having trouble with export {default as ...} syntax
 module.exports = {
-  mdColors: require('./mdColors').default,
+  MD_COLORS: require('./MD_COLORS').default,
 
   // components
   DataTable: require('./components/DataTable').default,
@@ -19,7 +19,7 @@ module.exports = {
   TextField: require('./components/TextField').default,
 
   // theme
-  themeLight: require('./theme/themeLight').default,
-  makeStyles: require('./theme/makeStyles').default,
+  themeConfigLight: require('./theme/themeConfigLight').default,
+  makeTheme: require('./theme/makeStyles').default,
   ThemeProvider: require('./theme/ThemeProvider').default
 }

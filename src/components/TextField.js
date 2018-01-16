@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import mdColors from '../styles/mdColors'
+import MD_COLORS from '../MD_COLORS'
 
 class TextField extends React.Component {
   render () {
@@ -36,7 +36,7 @@ class TextField extends React.Component {
           }
 
           input::placeholder {
-            color: ${mdColors.textWhiteHint};
+            color: ${MD_COLORS.textWhiteHint};
             font-weight: 100;
           }
         `}</style>

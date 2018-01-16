@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import mdColors from '../mdColors'
+import MD_COLORS from '../MD_COLORS'
 
 class DataTable extends React.Component {
   render () {
@@ -23,7 +23,7 @@ class DataTable extends React.Component {
 
             background-color: white;
 
-            color: ${mdColors.textBlack};
+            color: ${MD_COLORS.textBlack};
           }
         `
           }
@@ -84,7 +84,7 @@ class HCell extends React.Component {
           th {
             padding: ${g(4)} ${g(6)} ${g(4)} ${g(8)};
 
-            color: ${mdColors.textBlackSecondary};
+            color: ${MD_COLORS.textBlackSecondary};
             font-size: 12px;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -141,7 +141,7 @@ class Row extends React.Component {
           }
 
           tr:hover {
-            background-color: ${mdColors.grey200};
+            background-color: ${MD_COLORS.grey200};
           }
         `
           }
@@ -184,7 +184,7 @@ class Cell extends React.Component {
               the text
              */
             padding: ${g(4)} ${g(6)} ${g(4)} ${g(8)};
-            border-top: 1px solid ${mdColors.grey300};
+            border-top: 1px solid ${MD_COLORS.grey300};
 
             font-size: 13px;
             text-align: right;

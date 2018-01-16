@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import mdColors from '../mdColors'
+import MD_COLORS from '../MD_COLORS'
 import Ripples from './Ripples'
 import Menu from './Menu'
 
@@ -89,7 +89,7 @@ class Dropdown extends React.Component {
 
             height: ${g(10)};
             padding: ${g(3)} 0 ${g(2)};
-            border-bottom: 1px solid ${mdColors.grey200};
+            border-bottom: 1px solid ${MD_COLORS.grey200};
             border-radius: 2px;
           }
 
@@ -98,7 +98,7 @@ class Dropdown extends React.Component {
             top: ${g(2)};
             right: ${g(1)};
 
-            color: ${mdColors.grey400};
+            color: ${MD_COLORS.grey400};
           }
         `
           }
