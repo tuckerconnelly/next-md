@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import g from '../styles/g'
-import animations from '../styles/animations'
-import colors from '../styles/colors'
+import mdColors from '../mdColors'
 import Ripples from './Ripples'
 
 const THUMB_SIZE_G_UNITS = 5
@@ -14,6 +12,7 @@ class Switch extends React.Component {
   }
 
   render () {
+    const {g, animations} = this.context.nextMdTheme
     const { checked, disabled, ...other } = this.props
     return (
       <div className={`switch ${checked && 'checked'} ${disabled && 'disabled'}`} {...other}>
@@ -74,7 +73,7 @@ class Switch extends React.Component {
           }
 
           .disabled .thumb {
-            background-color: ${colors.grey400};
+            background-color: ${mdColors.grey400};
           }
         `}</style>
       </div>
@@ -89,6 +88,10 @@ Switch.propTypes = {
   onChange: PropTypes.func,
 
   ...Ripples.propTypes
+}
+
+Switch.contextTypes = {
+  nextMdTheme: PropTypes.object
 }
 
 export default Switch

@@ -1,75 +1,81 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import mdColors from '../mdColors'
 import Ripples from './Ripples'
-import g from '../styles/g'
-import animations from '../styles/animations'
-import breakpoints from '../styles/breakpoints'
-import colors from '../styles/colors'
-import elevations from '../styles/elevations'
 
-export const MenuItem = ({children, active, selected, ...other}) => (
-  <div className={`root ${active && 'active'}`} {...other}>
-    <Ripples>
-      <div className={`inner subheading ${selected && 'selected'}`}>
-        {children}
-      </div>
-    </Ripples>
-    <style jsx>
-      {
+export class MenuItem extends React.Component {
+  render () {
+    const {children, active, selected, ...other} = this.props
+    const {animations, breakpoints, g} = this.context.nextMdTheme
+    return (
+      <div className={`root ${active && 'active'}`} {...other}>
+        <Ripples>
+          <div className={`inner subheading ${selected && 'selected'}`}>
+            {children}
+          </div>
+        </Ripples>
+        <style jsx>
+          {
+            `
+            .root {
+              background-color: white;
+
+              opacity: 0;
+              transform: translateY(-10%);
+
+              ${animations.standard('opacity transform background-color')}
+              transition-duration: 375ms, 375ms, 150ms;
+              transition-delay: 75ms, 75ms, 0ms;
+            }
+
+            .root:hover {
+              background-color: ${mdColors.grey100};
+            }
+
+            .active {
+              opacity: 1;
+              transform: translateY(0%);
+            }
+
+            .inner {
+              padding: 14px 0px 14px ${g(4)};
+
+              color: ${mdColors.textBlackSecondary};
+            }
+
+            .selected {
+              color: ${mdColors.textBlack};
+            }
+
+            @media ${breakpoints.ml} {
+              .inner {
+                padding: 6px 0px 6px ${g(6)};
+              }
+
+              .dense .inner {
+                padding: 2px 0 2px ${g(6)};
+
+                font-size: 13px;
+              }
+            }
         `
-        .root {
-          background-color: white;
-
-          opacity: 0;
-          transform: translateY(-10%);
-
-          ${animations.standard('opacity transform background-color')}
-          transition-duration: 375ms, 375ms, 150ms;
-          transition-delay: 75ms, 75ms, 0ms;
-        }
-
-        .root:hover {
-          background-color: ${colors.grey100};
-        }
-
-        .active {
-          opacity: 1;
-          transform: translateY(0%);
-        }
-
-        .inner {
-          padding: 14px 0px 14px ${g(4)};
-
-          color: ${colors.textBlackSecondary};
-        }
-
-        .selected {
-          color: ${colors.textBlack};
-        }
-
-        @media ${breakpoints.ml} {
-          .inner {
-            padding: 6px 0px 6px ${g(6)};
           }
-
-          .dense .inner {
-            padding: 2px 0 2px ${g(6)};
-
-            font-size: 13px;
-          }
-        }
-    `
-      }
-    </style>
-  </div>
-)
+        </style>
+      </div>
+    )
+  }
+}
 
 MenuItem.propTypes = {
   children: PropTypes.node,
   value: PropTypes.any,
   active: PropTypes.bool,
   selected: PropTypes.bool
+}
+
+MenuItem.contextTypes = {
+  nextMdTheme: PropTypes.object.isRequired
 }
 
 const ACTIVATE_TRANSITION_DURATION = 300
@@ -83,6 +89,7 @@ class Menu extends React.Component {
 
   componentDidMount () {
     if (window) {
+      const {breakpoints} = this.context.nextMdTheme
       this.desktopMql = window.matchMedia(breakpoints.ml)
       this.desktopMql.addListener(this.boundForceUpdate)
     }
@@ -126,7 +133,7 @@ class Menu extends React.Component {
   }
 
   render () {
-    // eslint-disable-next-line no-unused-vars
+    const {g, animations, breakpoints, elevations} = this.context.nextMdTheme
     const {children, width, dense, style, active: _active, ...other} = this.props
     const {active, animateActive, animateDeactive} = this.state
 
@@ -206,6 +213,10 @@ Menu.propTypes = {
 Menu.defaultProps = {
   style: {},
   width: 2
+}
+
+Menu.contextTypes = {
+  nextMdTheme: PropTypes.object
 }
 
 export default Menu

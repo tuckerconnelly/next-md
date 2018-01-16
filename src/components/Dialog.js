@@ -3,11 +3,6 @@ import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
 import transitionify from 'transitionify'
 
-import breakpoints from '../styles/breakpoints'
-import animations from '../styles/animations'
-import g from '../styles/g'
-import elevations from '../styles/elevations'
-
 class Dialog extends React.Component {
   state = {mounted: false}
 
@@ -26,6 +21,7 @@ class Dialog extends React.Component {
     if (!this.state.mounted) return <div />
 
     const {children, active, onClose} = this.props
+    const {breakpoints, animations, g, elevations} = this.context.nextMdTheme
 
     return ReactDOM.createPortal(
       <div className={`dialog ${active ? 'active' : ''}`}>
@@ -116,6 +112,10 @@ Dialog.propTypes = {
 
   // transition
   active: PropTypes.bool
+}
+
+Dialog.contextTypes = {
+  nextMdTheme: PropTypes.object
 }
 
 Dialog.defaultProps = {

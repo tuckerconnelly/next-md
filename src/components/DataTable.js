@@ -1,164 +1,212 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import g from '../styles/g'
-import colors from '../styles/colors'
-import animations from '../styles/animations'
+import mdColors from '../mdColors'
 
-const DataTable = ({children, ...other}) => (
-  <table className='dataTable' {...other}>
-    <tbody>
-      {children}
-    </tbody>
-    <style jsx>
-      {
+class DataTable extends React.Component {
+  render () {
+    const {children, ...other} = this.props
+
+    return (
+      <table className='dataTable' {...other}>
+        <tbody>
+          {children}
+        </tbody>
+        <style jsx>
+          {
+            `
+          table {
+            width: 100%;
+            height: 100%;
+            border-radius: 2px;
+            border-spacing: 0;
+
+            background-color: white;
+
+            color: ${mdColors.textBlack};
+          }
         `
-      table {
-        width: 100%;
-        height: 100%;
-        border-radius: 2px;
-        border-spacing: 0;
-
-        background-color: white;
-
-        color: ${colors.textBlack};
-      }
-    `
-      }
-    </style>
-  </table>
-)
+          }
+        </style>
+      </table>
+    )
+  }
+}
 
 DataTable.propTypes = {
   children: PropTypes.any
 }
 
-DataTable.HRow = ({children, style, ...other}) => (
-  <tr {...other}>
-    {React.Children.map(
-      children,
-      (
-        child,
-        i
-        // Give the first cell a left padding of 24, per spec
-      ) =>
-        i === 0
-          ? React.cloneElement(child, {
-            ...child.props,
-            style: {paddingLeft: 24, ...(child.props.style || {})}
-          })
-          : child
-    )}
-  </tr>
-)
+class HRow extends React.Component {
+  render () {
+    const {children, style, ...other} = this.props
 
-DataTable.HRow.propTypes = {
+    return (
+      <tr {...other}>
+        {React.Children.map(
+          children,
+          (
+            child,
+            i
+            // Give the first cell a left padding of 24, per spec
+          ) =>
+            i === 0
+              ? React.cloneElement(child, {
+                ...child.props,
+                style: {paddingLeft: 24, ...(child.props.style || {})}
+              })
+              : child
+        )}
+      </tr>
+    )
+  }
+}
+
+HRow.propTypes = {
   children: PropTypes.any,
   style: PropTypes.object
 }
 
-DataTable.HRow.displayName = 'DataTable.HRow'
+HRow.displayName = 'DataTable.HRow'
 
-DataTable.HCell = ({children, ...other}) => (
-  <th {...other}>
-    {children}
-    <style jsx>
-      {
+DataTable.HRow = HRow
+
+class HCell extends React.Component {
+  render () {
+    const {children, ...other} = this.props
+    const {g} = this.context.nextMdTheme
+    return (
+      <th {...other}>
+        {children}
+        <style jsx>
+          {
+            `
+          th {
+            padding: ${g(4)} ${g(6)} ${g(4)} ${g(8)};
+
+            color: ${mdColors.textBlackSecondary};
+            font-size: 12px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            overflow: hidden;
+          }
         `
-      th {
-        padding: ${g(4)} ${g(6)} ${g(4)} ${g(8)};
+          }
+        </style>
+      </th>
+    )
+  }
+}
 
-        color: ${colors.textBlackSecondary};
-        font-size: 12px;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-
-        overflow: hidden;
-      }
-    `
-      }
-    </style>
-  </th>
-)
-
-DataTable.HCell.propTypes = {
+HCell.propTypes = {
   children: PropTypes.any
 }
 
-DataTable.HCell.displayName = 'DataTable.HCell'
+HCell.contextTypes = {
+  nextMdTheme: PropTypes.object
+}
 
-DataTable.Row = ({children, style, ...other}) => (
-  <tr {...other}>
-    {React.Children.map(
-      children,
-      (
-        child,
-        i
-        // Give the first cell a left padding of 24, per spec
-      ) =>
-        i === 0
-          ? React.cloneElement(child, {
-            ...child.props,
-            style: {paddingLeft: 24, ...(child.props.style || {})}
-          })
-          : child
-    )}
-    <style jsx>
-      {
+HCell.displayName = 'DataTable.HCell'
+
+DataTable.HCell = HCell
+
+class Row extends React.Component {
+  render () {
+    const {children, style, ...other} = this.props
+    const {animations} = this.context.nextMdTheme
+    return (
+      <tr {...other}>
+        {React.Children.map(
+          children,
+          (
+            child,
+            i
+            // Give the first cell a left padding of 24, per spec
+          ) =>
+            i === 0
+              ? React.cloneElement(child, {
+                ...child.props,
+                style: {paddingLeft: 24, ...(child.props.style || {})}
+              })
+              : child
+        )}
+        <style jsx>
+          {
+            `
+          tr {
+            background-color: transparent;
+
+            ${animations.standard('background-color')}
+          }
+
+          tr:hover {
+            background-color: ${mdColors.grey200};
+          }
         `
-      tr {
-        background-color: transparent;
+          }
+        </style>
+      </tr>
+    )
+  }
+}
 
-        ${animations.standard('background-color')}
-      }
-
-      tr:hover {
-        background-color: ${colors.grey200};
-      }
-    `
-      }
-    </style>
-  </tr>
-)
-
-DataTable.Row.propTypes = {
+Row.propTypes = {
   children: PropTypes.any,
   style: PropTypes.object
 }
 
-DataTable.Row.displayName = 'DataTable.Row'
+Row.contextTypes = {
+  nextMdTheme: PropTypes.object
+}
 
-DataTable.Cell = ({children, ...other}) => (
-  <td {...other}>
-    {children}
-    <style jsx>
-      {
+Row.displayName = 'DataTable.Row'
+
+DataTable.Row = Row
+
+class Cell extends React.Component {
+  render () {
+    const {children, ...other} = this.props
+    const {g} = this.context.nextMdTheme
+    return (
+      <td {...other}>
+        {children}
+        <style jsx>
+          {
+            `
+          td {
+            /*
+              NOTE Spec says hard height of 48, but going with
+              vertical padding of 16, expecting content to be height
+              16. That way, when content is 16px high, it'll be
+              to spec, but if you want to break spec and have
+              more content in the cell, it'll expand and not cut off
+              the text
+             */
+            padding: ${g(4)} ${g(6)} ${g(4)} ${g(8)};
+            border-top: 1px solid ${mdColors.grey300};
+
+            font-size: 13px;
+            text-align: right;
+          }
         `
-      td {
-        /*
-          NOTE Spec says hard height of 48, but going with
-          vertical padding of 16, expecting content to be height
-          16. That way, when content is 16px high, it'll be
-          to spec, but if you want to break spec and have
-          more content in the cell, it'll expand and not cut off
-          the text
-         */
-        padding: ${g(4)} ${g(6)} ${g(4)} ${g(8)};
-        border-top: 1px solid ${colors.grey300};
+          }
+        </style>
+      </td>
+    )
+  }
+}
 
-        font-size: 13px;
-        text-align: right;
-      }
-    `
-      }
-    </style>
-  </td>
-)
-
-DataTable.Cell.propTypes = {
+Cell.propTypes = {
   children: PropTypes.any
 }
 
-DataTable.Cell.displayName = 'DataTable.Cell'
+Cell.contextTypes = {
+  nextMdTheme: PropTypes.object
+}
+
+Cell.displayName = 'DataTable.Cell'
+
+DataTable.Cell = Cell
 
 export default DataTable

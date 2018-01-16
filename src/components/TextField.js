@@ -1,12 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import type from '../styles/type'
-import g from '../styles/g'
-import colors from '../styles/colors'
+import mdColors from '../styles/mdColors'
 
 class TextField extends React.Component {
   render () {
+    const {type, g} = this.context.nextMdTheme
     const {value, style, inputStyle, ...other} = this.props
     return (
       <div
@@ -37,7 +36,7 @@ class TextField extends React.Component {
           }
 
           input::placeholder {
-            color: ${colors.textWhiteHint};
+            color: ${mdColors.textWhiteHint};
             font-weight: 100;
           }
         `}</style>
@@ -51,6 +50,10 @@ TextField.propTypes = {
 
   style: PropTypes.object,
   inputStyle: PropTypes.object
+}
+
+TextField.contextTypes = {
+  nextMdTheme: PropTypes.object
 }
 
 export default TextField

@@ -6,36 +6,31 @@ next-md is a minimalistic ui library _inspired by_ Material Design for [next.js]
 
 ### Setup
 
-Install it:
-
 `npm i next-md`
 
-Create a `theme.js` in your project root:
+create a `theme.js` in your project root:
 
 ```js
-export default {
+import {makeTheme} from 'next-md'
+
+export default makeTheme({
   colors: {
     primary: '#7ec165',
     secondary: '#fe761f'
   }
-}
+})
+
+export default theme
 ```
 
-Create a [`./pages/_document.js`](https://github.com/zeit/next.js#custom-document) with the Roboto fonts, the css for your theme, and any custom global styles you want:
+create a [`./pages/_document.js`](https://github.com/zeit/next.js#custom-document) with the Roboto fonts:
 
 ```js
 import Document, { Head, Main, NextScript } from 'next/document'
 import flush from 'styled-jsx/server'
-import {themeLight} from 'next-md'
-
-import theme from '../theme'
 
 export default class MyDocument extends Document {
-  static getInitialProps ({ renderPage }) {
-    const {html, head, errorHtml, chunks} = renderPage()
-    const styles = flush()
-    return { html, head, errorHtml, chunks, styles }
-  }
+  static getInitialProps
 
   render () {
     return (
@@ -43,12 +38,6 @@ export default class MyDocument extends Document {
        <Head>
        <link href='https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i' rel='stylesheet' />
        <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet' />
-         <style dangerouslySetInnerHTML={{__html: themeLight(theme)}} />
-         <style dangerouslySetInnerHTML={{__html: `
-           /* Custom cascading styles! */
-           .body1 { font-weight: 300; }
-           .caption { font-weight: 300; }
-          `}} />
        </Head>
        <body className="custom_class">
          {this.props.customValue}
@@ -59,16 +48,42 @@ export default class MyDocument extends Document {
     )
   }
 }
+
+MyDocument.getInitialProps = ({ renderPage }) => {
+  const {html, head, errorHtml, chunks} = renderPage()
+  const styles = flush()
+  return { html, head, errorHtml, chunks, styles }
+}
+
+export default MyDocument
+```
+
+add a `ThemeProvider` over your pages:
+
+pages/index.js
+
+```
+import theme from '../theme'
+
+export default () =>
+  <ThemeProvider theme={theme}>
+    <div>
+      {/* ... */}
+    </div>
+  </ThemeProvider>
+
 ```
 
 ## Styles
 
+your `theme` has a bunch of useful styled-jsx snippets and functions in it
+
 ### animations
 
-Add css transitions to your styled-jsx by importing `animations`:
+add css transitions to your styled-jsx by importing `animations`:
 
 ```js
-import {animations} from 'next-md'
+import {animations} from '../theme'
 
 const MyComponent = () =>
   <div>
@@ -89,7 +104,7 @@ const MyComponent = () =>
   </div>
 ```
 
-The Material Design [animations](https://material.io/guidelines/motion/duration-easing.html) have been condensed to:
+the Material Design [animations](https://material.io/guidelines/motion/duration-easing.html) have been condensed to:
 
 - `animations.standard(properties)` for standard transitions
 - `animations.large(properties)` for large transitions
@@ -100,10 +115,10 @@ The Material Design [animations](https://material.io/guidelines/motion/duration-
 
 ### breakpoints
 
-Use the recommended Material Design breakpoints by importing `breakpoints`:
+use the recommended Material Design breakpoints by importing `breakpoints`:
 
 ```js
-import {breakpoints} from 'next-md'
+import {breakpoints} from '../theme'
 
 const MyResponsiveComponent = () =>
   <div>
@@ -122,7 +137,7 @@ const MyResponsiveComponent = () =>
   </div>
 ```
 
-You can use the follow Material Design [breakpoints](https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints):
+you can use the follow Material Design [breakpoints](https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints):
 
 - breakpoints.xs: (min-width: 480px)
 - breakpoints.sm: (min-width: 600px) - Mobile landscape
@@ -134,10 +149,10 @@ You can use the follow Material Design [breakpoints](https://material.io/guideli
 
 ### colors
 
-You can use any of the Material Design [colors](https://material.io/guidelines/style/color.html#color-color-palette) by importing `colors`:
+you can use any of the Material Design [colors](https://material.io/guidelines/style/color.html#color-color-palette) by importing `colors`. Your theme colors will also be on this object:
 
 ```js
-import {colors} from 'next-md'
+import {colors} from '../theme'
 
 const MyColorfulComponent = () =>
   <div>
@@ -146,6 +161,8 @@ const MyColorfulComponent = () =>
         background-color: ${colors.red400};
 
         color: ${colors.blue200};
+
+        border-color: ${colors.primary};
       }
     `}</style>
   </div>
@@ -153,22 +170,36 @@ const MyColorfulComponent = () =>
 
 ### elevations
 
-Add shadows to your components simply by adding a `className='dp#'`:
+add shadows to your components by importing `elevations`.
 
 ```js
+import {elevations} from '../theme'
+
 // Has an elevation of 2
-const MyComponent = () => <div className='dp2' />
+const MyComponent = () => <div>
+  <style jsx>{`
+    div {
+      ${elevations.dp2}
+    }
+  `}</style>
+</div>
 
 // Has an elevation of 16
-const MyHighComponent = () => <div className='dp16' />
+const MyComponent = () => <div>
+  <style jsx>{`
+    div {
+      ${elevations.dp16}
+    }
+  `}</style>
+</div>
 ```
 
 ### grid
 
-Keep your elements on Material Design's 4px grid by using the `g()` function:
+keep your elements on Material Design's 4px grid by using the `g()` function:
 
 ```js
-import {g} from 'next-md'
+import {g} from '../theme'
 
 const MyComponent = () =>
   <div>

@@ -2,14 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import transitionify from 'transitionify'
 
-import colors from '../styles/colors'
-import type from '../styles/type'
-import g from '../styles/g'
-import animations from '../styles/animations'
+import mdColors from '../styles/colors'
 
 class FormError extends React.Component {
   render () {
     const {active, children} = this.props
+    const {animations, g, type} = this.context.nextMdTheme
     return (
       <div className={active && 'active'}>
         {children}
@@ -19,7 +17,7 @@ class FormError extends React.Component {
             margin-bottom: ${g(0)};
 
             ${type.body1}
-            color: ${colors.red600};
+            color: ${mdColors.red600};
             font-weight: 300;
 
             opacity: 0;
@@ -45,6 +43,10 @@ FormError.propTypes = {
 
   // transitionify
   active: PropTypes.bool
+}
+
+FormError.contextTypes = {
+  nextMdTheme: PropTypes.object
 }
 
 export default transitionify({useChildren: true})(FormError)

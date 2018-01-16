@@ -1,15 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import mdColors from '../mdColors'
 import Ripples from './Ripples'
 import Menu from './Menu'
-import g from '../styles/g'
-import breakpoints from '../styles/breakpoints'
-import colors from '../styles/colors'
 
 class Dropdown extends React.Component {
   componentDidMount () {
     if (window) {
+      const {breakpoints} = this.context.nextMdTheme
       this.desktopMql = window.matchMedia(breakpoints.ml)
       this.desktopMql.addListener(this.boundForceUpdate)
 
@@ -45,6 +44,8 @@ class Dropdown extends React.Component {
 
   render () {
     const {width, value, style, children} = this.props
+    const {g} = this.context.nextMdTheme
+
     return (
       <div
         className='dropdown'
@@ -88,7 +89,7 @@ class Dropdown extends React.Component {
 
             height: ${g(10)};
             padding: ${g(3)} 0 ${g(2)};
-            border-bottom: 1px solid ${colors.grey200};
+            border-bottom: 1px solid ${mdColors.grey200};
             border-radius: 2px;
           }
 
@@ -97,7 +98,7 @@ class Dropdown extends React.Component {
             top: ${g(2)};
             right: ${g(1)};
 
-            color: ${colors.grey400};
+            color: ${mdColors.grey400};
           }
         `
           }
@@ -119,6 +120,10 @@ Dropdown.defaultProps = {
   style: {},
   width: 2,
   onChange: () => 0
+}
+
+Dropdown.contextTypes = {
+  nextMdTheme: PropTypes.object
 }
 
 export default Dropdown

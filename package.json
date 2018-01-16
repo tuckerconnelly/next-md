@@ -2,17 +2,17 @@
   "name": "next-md",
   "version": "0.0.17",
   "description": "minimalistic material design library with next.js in mind",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "precommit": "$(npm bin)/lint-staged",
     "prepare": "npm run build",
     "prepublishOnly": "npm run deploy",
     "lint": "$(npm bin)/eslint src",
     "prettier": "$(npm bin)/prettier-standard \"src/**/*.js\"",
-    "dev": "$(npm bin)/babel -w -d lib src",
-    "build-lib": "rm -rf lib && $(npm bin)/babel -d lib src",
+    "dev": "$(npm bin)/babel -w -d dist src",
+    "build-dist": "rm -rf dist && $(npm bin)/babel -d dist src",
     "build-storybook": "rm -rf .out && build-storybook -c ./src/components/.storybook -o .out",
-    "build": "npm run build-lib && npm run build-storybook",
+    "build": "npm run build-dist && npm run build-storybook",
     "start": "cd .out && serve -p 9001",
     "dev-storybook": "start-storybook -p 9001  -c ./src/components/.storybook",
     "deploy": "now && now alias"
@@ -77,7 +77,6 @@
     "lodash": "^4.17.4",
     "prop-types": "^15.6.0",
     "serve": "^6.4.8",
-    "styled-jsx": "^2.2.1",
     "transitionify": "0.0.5"
   },
   "babel": {
