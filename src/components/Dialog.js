@@ -21,7 +21,6 @@ class Dialog extends React.Component {
     if (!this.state.mounted) return <div />
 
     const {children, active, onClose} = this.props
-    const {breakpoints, animations, g, elevations} = this.context.nextMdTheme
 
     return ReactDOM.createPortal(
       <div className={`dialog ${active ? 'active' : ''}`}>
@@ -57,7 +56,7 @@ class Dialog extends React.Component {
 
             cursor: pointer;
 
-            ${animations.standard('background-color')}
+            ${this.context.nextMdTheme.animations.standard('background-color')}
           }
 
           .active .background {
@@ -65,38 +64,38 @@ class Dialog extends React.Component {
           }
 
           .body {
-            padding: ${g(2)} ${g(4)};
+            padding: ${this.context.nextMdTheme.g(2)} ${this.context.nextMdTheme.g(4)};
             border-radius: 2px;
-            margin-left: ${g(2)};
-            margin-right: ${g(2)};
-            margin-top: ${g(0)};
+            margin-left: ${this.context.nextMdTheme.g(2)};
+            margin-right: ${this.context.nextMdTheme.g(2)};
+            margin-top: ${this.context.nextMdTheme.g(0)};
 
             background-color: white;
 
             opacity: 0;
-            ${elevations.dp8}
+            ${this.context.nextMdTheme.elevations.dp8}
 
-            ${animations.standard('margin-top opacity')}
+            ${this.context.nextMdTheme.animations.standard('margin-top opacity')}
           }
 
           .active .body {
-            margin-top: ${g(2)};
+            margin-top: ${this.context.nextMdTheme.g(2)};
 
             opacity: 1;
           }
 
-          @media ${breakpoints.sm} {
+          @media ${this.context.nextMdTheme.breakpoints.sm} {
             .dialog {
               align-items: center;
             }
 
             .body {
-              width: ${g(130)};
-              margin-top: ${g(8)};
+              width: ${this.context.nextMdTheme.g(130)};
+              margin-top: ${this.context.nextMdTheme.g(8)};
             }
 
             .active .body {
-              margin-top: ${g(10)};
+              margin-top: ${this.context.nextMdTheme.g(10)};
             }
           }
         `}</style>

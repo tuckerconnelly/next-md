@@ -8,8 +8,7 @@ import Menu from './Menu'
 class Dropdown extends React.Component {
   componentDidMount () {
     if (window) {
-      const {breakpoints} = this.context.nextMdTheme
-      this.desktopMql = window.matchMedia(breakpoints.ml)
+      this.desktopMql = window.matchMedia(this.context.nextMdTheme.breakpoints.ml)
       this.desktopMql.addListener(this.boundForceUpdate)
 
       document.addEventListener('mouseup', this.deactivate)
@@ -44,7 +43,6 @@ class Dropdown extends React.Component {
 
   render () {
     const {width, value, style, children} = this.props
-    const {g} = this.context.nextMdTheme
 
     return (
       <div
@@ -87,16 +85,16 @@ class Dropdown extends React.Component {
           .value {
             box-sizing: border-box;
 
-            height: ${g(10)};
-            padding: ${g(3)} 0 ${g(2)};
+            height: ${this.context.nextMdTheme.g(10)};
+            padding: ${this.context.nextMdTheme.g(3)} 0 ${this.context.nextMdTheme.g(2)};
             border-bottom: 1px solid ${MD_COLORS.grey200};
             border-radius: 2px;
           }
 
           .dropdownArrow {
             position: absolute;
-            top: ${g(2)};
-            right: ${g(1)};
+            top: ${this.context.nextMdTheme.g(2)};
+            right: ${this.context.nextMdTheme.g(1)};
 
             color: ${MD_COLORS.grey400};
           }

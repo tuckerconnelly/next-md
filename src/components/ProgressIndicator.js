@@ -5,7 +5,6 @@ const SCALE_RATIO = 1.25
 
 class ProgressIndicator extends React.Component {
   render () {
-    const {animations} = this.context.nextMdTheme
     const {type, mode, multicolor, ...other} = this.props
 
     const _calculateRatio = value => {
@@ -81,7 +80,7 @@ class ProgressIndicator extends React.Component {
               stroke-linecap: round;
               stroke-miterlimit: 20;
               stroke-width: 4;
-              ${animations.standard('stroke-dasharray')}
+              ${this.context.nextMdTheme.animations.standard('stroke-dasharray')}
             }
 
             @keyframes circular-indeterminate-bar-rotate {

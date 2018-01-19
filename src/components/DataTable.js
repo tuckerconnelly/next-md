@@ -74,7 +74,6 @@ DataTable.HRow = HRow
 class HCell extends React.Component {
   render () {
     const {children, ...other} = this.props
-    const {g} = this.context.nextMdTheme
     return (
       <th {...other}>
         {children}
@@ -82,7 +81,7 @@ class HCell extends React.Component {
           {
             `
           th {
-            padding: ${g(4)} ${g(6)} ${g(4)} ${g(8)};
+            padding: ${this.context.nextMdTheme.g(4)} ${this.context.nextMdTheme.g(6)} ${this.context.nextMdTheme.g(4)} ${this.context.nextMdTheme.g(8)};
 
             color: ${MD_COLORS.textBlackSecondary};
             font-size: 12px;
@@ -114,7 +113,6 @@ DataTable.HCell = HCell
 class Row extends React.Component {
   render () {
     const {children, style, ...other} = this.props
-    const {animations} = this.context.nextMdTheme
     return (
       <tr {...other}>
         {React.Children.map(
@@ -137,7 +135,7 @@ class Row extends React.Component {
           tr {
             background-color: transparent;
 
-            ${animations.standard('background-color')}
+            ${this.context.nextMdTheme.animations.standard('background-color')}
           }
 
           tr:hover {
@@ -167,7 +165,6 @@ DataTable.Row = Row
 class Cell extends React.Component {
   render () {
     const {children, ...other} = this.props
-    const {g} = this.context.nextMdTheme
     return (
       <td {...other}>
         {children}
@@ -183,7 +180,7 @@ class Cell extends React.Component {
               more content in the cell, it'll expand and not cut off
               the text
              */
-            padding: ${g(4)} ${g(6)} ${g(4)} ${g(8)};
+            padding: ${this.context.nextMdTheme.g(4)} ${this.context.nextMdTheme.g(6)} ${this.context.nextMdTheme.g(4)} ${this.context.nextMdTheme.g(8)};
             border-top: 1px solid ${MD_COLORS.grey300};
 
             font-size: 13px;

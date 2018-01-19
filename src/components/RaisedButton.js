@@ -5,7 +5,6 @@ import Ripples from './Ripples'
 
 class RaisedButton extends React.Component {
   render () {
-    const {breakpoints, elevations, animations} = this.context.nextMdTheme
     const {
       disabled,
 
@@ -48,32 +47,32 @@ class RaisedButton extends React.Component {
             overflow: hidden;
             z-index: 1;
 
-            ${elevations.dp2}
+            ${this.context.nextMdTheme.elevations.dp2}
 
-            ${animations.standard('box-shadow color background-color')}
+            ${this.context.nextMdTheme.animations.standard('box-shadow color background-color')}
           }
 
           div:hover:not(.disabled) {
-            ${elevations.dp2}
+            ${this.context.nextMdTheme.elevations.dp2}
           }
 
           div:active:not(.disabled) {
-            ${elevations.dp4}
+            ${this.context.nextMdTheme.elevations.dp4}
           }
 
           .disabled {
             background-color: rgba(0, 0, 0, .12);
 
-            ${elevations.dp0}
+            ${this.context.nextMdTheme.elevations.dp0}
           }
 
-          @media ${breakpoints.ml} {
+          @media ${this.context.nextMdTheme.breakpoints.ml} {
             div {
               height: 32px;
 
               line-height: 32px;
 
-              ${elevations.dp0}
+              ${this.context.nextMdTheme.elevations.dp0}
             }
           }
         `

@@ -15,8 +15,6 @@ class FlatButton extends React.Component {
       ...other
     } = this.props
 
-    const {breakpoints, animations} = this.context.nextMdTheme
-
     return (
       <div
         style={style}
@@ -49,12 +47,12 @@ class FlatButton extends React.Component {
             overflow: hidden;
             z-index: 1;
 
-            ${animations.standard('box-shadow')}
+            ${this.context.nextMdTheme.animations.standard('box-shadow')}
           }
           .disabled {
             background-color: rgba(0, 0, 0, .12);
           }
-          @media ${breakpoints.ml} {
+          @media ${this.context.nextMdTheme.breakpoints.ml} {
             div {
               height: 32px;
 

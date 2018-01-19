@@ -12,7 +12,6 @@ class Switch extends React.Component {
   }
 
   render () {
-    const {g, animations} = this.context.nextMdTheme
     const { checked, disabled, ...other } = this.props
     return (
       <div className={`switch ${checked && 'checked'} ${disabled && 'disabled'}`} {...other}>
@@ -39,13 +38,13 @@ class Switch extends React.Component {
           }
 
           .track {
-            width: ${g(9)};
-            height: ${g(3.5)};
-            border-radius: ${g(2)};
+            width: ${this.context.nextMdTheme.g(9)};
+            height: ${this.context.nextMdTheme.g(3.5)};
+            border-radius: ${this.context.nextMdTheme.g(2)};
 
             cursor: pointer;
 
-            ${animations.standard('background-color')}
+            ${this.context.nextMdTheme.animations.standard('background-color')}
           }
 
           .thumb {
@@ -53,17 +52,17 @@ class Switch extends React.Component {
             left: 0;
             top: -3px;
 
-            width: ${g(THUMB_SIZE_G_UNITS)};
-            height: ${g(THUMB_SIZE_G_UNITS)};
+            width: ${this.context.nextMdTheme.g(THUMB_SIZE_G_UNITS)};
+            height: ${this.context.nextMdTheme.g(THUMB_SIZE_G_UNITS)};
             border-radius: 50%;
 
             overflow: visible;
 
-            ${animations.standard('left background-color')}
+            ${this.context.nextMdTheme.animations.standard('left background-color')}
           }
 
           .checked .thumb {
-            left: calc(100% - ${g(THUMB_SIZE_G_UNITS)});
+            left: calc(100% - ${this.context.nextMdTheme.g(THUMB_SIZE_G_UNITS)});
           }
 
           .disabled .track {

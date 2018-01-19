@@ -5,7 +5,6 @@ import MD_COLORS from '../MD_COLORS'
 
 class TextField extends React.Component {
   render () {
-    const {type, g} = this.context.nextMdTheme
     const {value, style, inputStyle, ...other} = this.props
     return (
       <div
@@ -20,7 +19,7 @@ class TextField extends React.Component {
           .textField {
             width: 100%;
 
-            margin: ${g(3)} 0;
+            margin: ${this.context.nextMdTheme.g(3)} 0;
             border-bottom: 1px solid rgba(0, 0, 0, 0.12);
           }
 
@@ -29,7 +28,7 @@ class TextField extends React.Component {
             border: none;
             outline: none;
 
-            ${type.subheading}
+            ${this.context.nextMdTheme.type.subheading}
             font-weight: 300;
 
             background-color: transparent;

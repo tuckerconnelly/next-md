@@ -7,7 +7,6 @@ import Ripples from './Ripples'
 export class MenuItem extends React.Component {
   render () {
     const {children, active, selected, ...other} = this.props
-    const {animations, breakpoints, g} = this.context.nextMdTheme
     return (
       <div className={`root ${active && 'active'}`} {...other}>
         <Ripples>
@@ -24,7 +23,7 @@ export class MenuItem extends React.Component {
               opacity: 0;
               transform: translateY(-10%);
 
-              ${animations.standard('opacity transform background-color')}
+              ${this.context.nextMdTheme.animations.standard('opacity transform background-color')}
               transition-duration: 375ms, 375ms, 150ms;
               transition-delay: 75ms, 75ms, 0ms;
             }
@@ -39,7 +38,7 @@ export class MenuItem extends React.Component {
             }
 
             .inner {
-              padding: 14px 0px 14px ${g(4)};
+              padding: 14px 0px 14px ${this.context.nextMdTheme.g(4)};
 
               color: ${MD_COLORS.textBlackSecondary};
             }
@@ -48,13 +47,13 @@ export class MenuItem extends React.Component {
               color: ${MD_COLORS.textBlack};
             }
 
-            @media ${breakpoints.ml} {
+            @media ${this.context.nextMdTheme.breakpoints.ml} {
               .inner {
-                padding: 6px 0px 6px ${g(6)};
+                padding: 6px 0px 6px ${this.context.nextMdTheme.g(6)};
               }
 
               .dense .inner {
-                padding: 2px 0 2px ${g(6)};
+                padding: 2px 0 2px ${this.context.nextMdTheme.g(6)};
 
                 font-size: 13px;
               }
@@ -133,7 +132,6 @@ class Menu extends React.Component {
   }
 
   render () {
-    const {g, animations, breakpoints, elevations} = this.context.nextMdTheme
     const {children, width, dense, style, active: _active, ...other} = this.props
     const {active, animateActive, animateDeactive} = this.state
 
@@ -161,14 +159,14 @@ class Menu extends React.Component {
           .menu {
             display: none;
 
-            padding: ${g(2)} 0;
+            padding: ${this.context.nextMdTheme.g(2)} 0;
             border-radius: 2px;
 
             background-color: white;
 
-            ${elevations.dp8}
+            ${this.context.nextMdTheme.elevations.dp8}
 
-            ${animations.standard('opacity transform')}
+            ${this.context.nextMdTheme.animations.standard('opacity transform')}
 
             opacity: 0;
             transform: translate(5%, 5%) scale(0.9);
@@ -189,9 +187,9 @@ class Menu extends React.Component {
             transform: translateY(-5%) scale(1);
           }
 
-          @media ${breakpoints.ml} {
+          @media ${this.context.nextMdTheme.breakpoints.ml} {
             .dense {
-              padding: ${g(1)} 0;
+              padding: ${this.context.nextMdTheme.g(1)} 0;
             }
           }
         `

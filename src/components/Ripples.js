@@ -174,8 +174,4 @@ Ripples.defaultProps = {
   rippleCentered: false
 }
 
-Ripples.contextTypes = {
-  nextMdTheme: PropTypes.object
-}
-
 export default Ripples
