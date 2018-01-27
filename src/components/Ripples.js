@@ -21,6 +21,7 @@ const Ripple = ({style, done, ...other}) => (
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+        pointer-events: none;
       }
 
       @keyframes ripple {
