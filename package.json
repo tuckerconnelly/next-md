@@ -76,8 +76,8 @@
     "color": "^2.0.1",
     "lodash": "^4.17.4",
     "prop-types": "^15.6.0",
-    "serve": "^6.4.8",
-    "transitionify": "0.0.5"
+    "react-transition-group": "^2.2.1",
+    "serve": "^6.4.8"
   },
   "babel": {
     "presets": [
