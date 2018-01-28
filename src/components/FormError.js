@@ -14,7 +14,7 @@ class FormError extends React.Component {
       setTimeout(() => this.setState({children: nextProps.children}), TRANSITION_TIMEOUT)
     }
 
-    if (!this.props.children && nextProps.children) {
+    if (nextProps.children) {
       this.setState({children: nextProps.children})
     }
   }
