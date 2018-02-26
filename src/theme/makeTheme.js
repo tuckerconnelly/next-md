@@ -59,24 +59,9 @@ export default function makeStyles (themeConfig = {}) {
       display1: makeCss(_themeConfig.type.display1),
       headline: makeCss(_themeConfig.type.headline),
       title: makeCss(_themeConfig.type.title),
-      subheading: `
-       ${makeCss(_themeConfig.type.subheading)}
-       @media (${_themeConfig.breakpoints.ml}) {
-         ${makeCss(_themeConfig.type.subheadingDesktop)}
-       }
-    `,
-      body2: `
-       ${makeCss(_themeConfig.type.body2)}
-       @media (${_themeConfig.breakpoints.ml}) {
-         ${makeCss(_themeConfig.type.body2Desktop)}
-       }
-    `,
-      body1: `
-       ${makeCss(_themeConfig.type.body1)}
-       @media (${_themeConfig.breakpoints.ml}) {
-         ${makeCss(_themeConfig.type.body2Desktop)}
-       }
-    `,
+      subheading: makeCss(_themeConfig.type.subheading),
+      body2: makeCss(_themeConfig.type.body2),
+      body1: makeCss(_themeConfig.type.body1),
       caption: makeCss(_themeConfig.type.caption)
     }
   }
