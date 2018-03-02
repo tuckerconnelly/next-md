@@ -21,7 +21,7 @@ class RaisedButton extends React.Component {
         className={['raisedButton', disabled && 'disabled'].join(' ')}
       >
         <Ripples
-          style={{display: 'flex', justifyContent: 'center', width: 'auto', padding: '0 16px'}}
+          style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: 'auto', padding: '0 16px'}}
           rippleColor='white'
           disabled={disabled}
           {...other}

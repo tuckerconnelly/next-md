@@ -21,7 +21,7 @@ class FlatButton extends React.Component {
         className={['flatButton', disabled && 'disabled'].join(' ')}
       >
         <Ripples
-          style={{display: 'flex', justifyContent: 'center', width: 'auto', padding: '0 16px'}}
+          style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: 'auto', padding: '0 16px'}}
           rippleColor='black'
           disabled={disabled}
           {...other}
