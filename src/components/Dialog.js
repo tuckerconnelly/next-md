@@ -20,7 +20,7 @@ class Dialog extends React.Component {
               </div>
               <style jsx>{`
                 .dialog {
-                  position: absolute;
+                  position: fixed;
                   left: 0;
                   top: 0;
                   z-index: 2500;
