@@ -75,7 +75,7 @@
   "dependencies": {
     "color": "^2.0.1",
     "lodash": "^4.17.4",
-    "prop-types": "^15.6.0",
+    "prop-types": "^15.6.1",
     "react-portal": "^4.1.3",
     "react-transition-group": "^2.2.1",
     "serve": "^6.4.8"
