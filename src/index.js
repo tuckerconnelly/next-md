@@ -17,6 +17,7 @@ module.exports = {
   ProgressIndicator: require('./components/ProgressIndicator').default,
   Switch: require('./components/Switch').default,
   TextField: require('./components/TextField').default,
+  Toast: require('./components/Toast').default,
 
   // theme
   themeConfigLight: require('./theme/themeConfigLight').default,
